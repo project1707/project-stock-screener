@@ -36,12 +36,14 @@ const resetData = () => {
 <template>
   <section class="mt-4 min-w-[1060px] overflow-hidden">
     <div class="w-full">
-      <ScrollArea class="w-full h-[449px] border-b">
-        <table class="w-full border-separate">
+      <ScrollArea class="w-full h-[449px]">
+        <table class="w-full">
           <thead class="sticky top-0 z-[200] bg-light">
             <tr>
-              <th class="bg-light border border-gray-200">
-                <DropdownMenu class="w-full">
+              <th
+                class="z-[200] bg-light border border-gray-200 cursor-pointer hover:bg-gray-200 rounded-xl duration-300"
+              >
+                <DropdownMenu class="w-full p-4">
                   <DropdownMenuTrigger class="w-full"
                     >Company Ticker</DropdownMenuTrigger
                   >
@@ -60,8 +62,10 @@ const resetData = () => {
                   </DropdownMenuContent>
                 </DropdownMenu>
               </th>
-              <th class="bg-light border border-gray-200">
-                <DropdownMenu class="w-full">
+              <th
+                class="z-[200] bg-light border border-gray-200 cursor-pointer hover:bg-gray-200 rounded-xl duration-300"
+              >
+                <DropdownMenu class="w-full p-4">
                   <DropdownMenuTrigger class="w-full"
                     >Company Name</DropdownMenuTrigger
                   >
@@ -80,8 +84,10 @@ const resetData = () => {
                   </DropdownMenuContent>
                 </DropdownMenu>
               </th>
-              <th class="bg-light border border-gray-200">
-                <DropdownMenu class="w-full">
+              <th
+                class="z-[200] bg-light border border-gray-200 cursor-pointer hover:bg-gray-200 rounded-xl duration-300"
+              >
+                <DropdownMenu class="w-full p-4">
                   <DropdownMenuTrigger class="w-full"
                     >Lot size</DropdownMenuTrigger
                   >
@@ -98,8 +104,10 @@ const resetData = () => {
                   </DropdownMenuContent>
                 </DropdownMenu>
               </th>
-              <th class="bg-light border border-gray-200">
-                <DropdownMenu class="w-full">
+              <th
+                class="z-[200] bg-light border border-gray-200 cursor-pointer hover:bg-gray-200 rounded-xl duration-300"
+              >
+                <DropdownMenu class="w-full p-4">
                   <DropdownMenuTrigger class="w-full">LTP</DropdownMenuTrigger>
                   <DropdownMenuContent class="w-full">
                     <DropdownMenuItem @click="resetData"
@@ -114,8 +122,10 @@ const resetData = () => {
                   </DropdownMenuContent>
                 </DropdownMenu>
               </th>
-              <th class="bg-light border border-gray-200">
-                <DropdownMenu class="w-full">
+              <th
+                class="z-[200] bg-light border border-gray-200 cursor-pointer hover:bg-gray-200 rounded-xl duration-300"
+              >
+                <DropdownMenu class="w-full p-4">
                   <DropdownMenuTrigger class="w-full"
                     >EMA Last Year</DropdownMenuTrigger
                   >
@@ -134,8 +144,10 @@ const resetData = () => {
                   </DropdownMenuContent>
                 </DropdownMenu>
               </th>
-              <th class="bg-light border border-gray-200">
-                <DropdownMenu class="w-full">
+              <th
+                class="z-[200] bg-light border border-gray-200 cursor-pointer hover:bg-gray-200 rounded-xl duration-300"
+              >
+                <DropdownMenu class="w-full p-4">
                   <DropdownMenuTrigger class="w-full"
                     >EMA Last Month</DropdownMenuTrigger
                   >
@@ -154,8 +166,10 @@ const resetData = () => {
                   </DropdownMenuContent>
                 </DropdownMenu>
               </th>
-              <th class="bg-light border border-gray-200">
-                <DropdownMenu class="w-full">
+              <th
+                class="z-[200] bg-light border border-gray-200 cursor-pointer hover:bg-gray-200 rounded-xl duration-300"
+              >
+                <DropdownMenu class="w-full p-4">
                   <DropdownMenuTrigger class="w-full"
                     >EMA Diff (Last Month - Last Year) %</DropdownMenuTrigger
                   >
@@ -182,13 +196,15 @@ const resetData = () => {
           </thead>
           <tbody>
             <tr v-for="ticket in store.dataToShow" :key="ticket.Company_Name">
-              <td>{{ ticket.Company_Ticker }}</td>
-              <td>{{ ticket.Company_Name }}</td>
-              <td>{{ ticket["Lot Size"] }}</td>
-              <td>{{ ticket.LTP }}</td>
-              <td>{{ ticket.EMA_Last_Month }}</td>
-              <td>{{ ticket.EMA_Last_Year }}</td>
-              <td>{{ ticket.EMA_Diff_Last_Month_Last_Year }}</td>
+              <td class="duration-300 border-b">{{ ticket.Company_Ticker }}</td>
+              <td class="duration-300 border-b">{{ ticket.Company_Name }}</td>
+              <td class="duration-300 border-b">{{ ticket["Lot Size"] }}</td>
+              <td class="duration-300 border-b">{{ ticket.LTP }}</td>
+              <td class="duration-300 border-b">{{ ticket.EMA_Last_Month }}</td>
+              <td class="duration-300 border-b">{{ ticket.EMA_Last_Year }}</td>
+              <td class="duration-300 border-b">
+                {{ ticket.EMA_Diff_Last_Month_Last_Year }}
+              </td>
             </tr>
           </tbody>
         </table>
