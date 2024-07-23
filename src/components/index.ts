@@ -4,6 +4,7 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import StockFooter from "./customer/footer/StockFooter.vue";
 import StockTable from "./customer/table/StockTable.vue";
+import StockTableItem from "./customer/table/StockTableItem.vue";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { ScrollBar } from "@/components/ui/scroll-area";
 
@@ -18,6 +19,7 @@ const components: Component[] = [
   { name: "Button", component: Button },
   { name: "StockFooter", component: StockFooter },
   { name: "StockTable", component: StockTable },
+  { name: "StockTableItem", component: StockTableItem },
   { name: "ScrollArea", component: ScrollArea },
   { name: "ScrollBar ", component: ScrollBar },
 ];
