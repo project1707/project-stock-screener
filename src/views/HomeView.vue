@@ -1,7 +1,18 @@
 <script setup lang="ts"></script>
 
 <template>
-  <main>
-    <TheWelcome />
-  </main>
+  <div class="min-h-screen flex flex-col">
+    <StockHeader />
+    <main class="flex-auto">
+      <StockTable />
+    </main>
+    <StockFooter />
+  </div>
 </template>
+
+<style>
+html,
+body {
+  height: 100%;
+}
+</style>

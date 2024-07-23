@@ -1,12 +1,12 @@
 <script setup lang="ts">
 import { useCounterStore } from "@/stores/counter";
-
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import { ref } from "vue";
 
 const store = useCounterStore();
 
@@ -31,10 +31,19 @@ const sortNumbers = (key: string, order: "asc" | "desc") => {
 const resetData = () => {
   store.dataToShow = [...store.data];
 };
+
+// coping slicedArray
+const slicedArray = ref<object[]>([]);
+
+const copyArr = (arr: object[]) => {
+  slicedArray.value = [...arr];
+
+  console.log(slicedArray.value);
+};
 </script>
 
 <template>
-  <section class="mt-4 min-w-[1060px] overflow-hidden">
+  <section class="mt-4 min-w-[1060px]">
     <div class="w-full">
       <ScrollArea class="w-full h-[449px]">
         <table class="w-full">
@@ -212,6 +221,7 @@ const resetData = () => {
           </tbody>
         </table>
       </ScrollArea>
+      <StockPagination />
     </div>
   </section>
 </template>
