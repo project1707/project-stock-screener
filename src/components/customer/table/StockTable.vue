@@ -18,6 +18,8 @@ const sortNumbers = (key: string, order: "asc" | "desc") => {
 onMounted(() => {
   sortNumbers("EMADiff_FinalScore", "desc");
 });
+
+console.log(store.dataToShow);
 </script>
 
 <template>
@@ -37,7 +39,7 @@ onMounted(() => {
           <TabsTrigger
             value="super-trend"
             class="w-full"
-            @click="sortNumbers('SuperTrend_FinalScore', 'desc')"
+            @click="sortNumbers('SuperTrend_FinalScore', 'asc')"
           >
             SuperTrend
           </TabsTrigger>

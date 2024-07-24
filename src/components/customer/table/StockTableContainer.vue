@@ -6,8 +6,8 @@ const store = useCounterStore();
 </script>
 
 <template>
-  <ScrollArea class="h-[449px] overflow-hidden">
-    <table class="w-full sticky min-w-[818px] z-[200] bg-light">
+  <ScrollArea class="h-[449px] min-w-[818px] overflow-hidden">
+    <table class="w-full sticky z-[200] bg-light">
       <thead class="sticky top-0 z-[200] bg-light">
         <tr>
           <th class="bg-light">
