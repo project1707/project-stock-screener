@@ -8,10 +8,8 @@ const store = useCounterStore();
 const inputData = ref("");
 
 const searchTickets = () => {
-  store.dataToShow = store.data.filter((el: { Company_Name: string }) => {
-    return el.Company_Name.toUpperCase().includes(
-      inputData.value.toUpperCase()
-    );
+  store.dataToShow = store.data.filter((el: { companyName: string }) => {
+    return el.companyName.toUpperCase().includes(inputData.value.toUpperCase());
   });
 
   console.log(store.dataToShow);

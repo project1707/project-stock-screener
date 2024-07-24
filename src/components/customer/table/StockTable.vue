@@ -1,217 +1,64 @@
 <script setup lang="ts">
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import StockTableContainer from "./StockTableContainer.vue";
 import { useCounterStore } from "@/stores/counter";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
-
-import { ScrollBar } from "@/components/ui/scroll-area";
+import { onMounted } from "vue";
+import { supabase } from "../../../lib/supabaseClient";
 
 const store = useCounterStore();
 
-const sortStrings = (key: string, order: "asc" | "desc") => {
-  store.dataToShow.sort((a, b) => {
-    const aKey = a[key as keyof typeof a];
-    const bKey = b[key as keyof typeof b];
-    if (aKey < bKey) return order === "asc" ? -1 : 1;
-    if (aKey > bKey) return order === "asc" ? 1 : -1;
-    return 0;
-  });
-};
-
 const sortNumbers = (key: string, order: "asc" | "desc") => {
   store.dataToShow.sort((a, b) => {
-    const aKey = a[key as keyof typeof a] as number;
-    const bKey = b[key as keyof typeof b] as number;
+    const aKey = a[key as keyof typeof a] as unknown as number;
+    const bKey = b[key as keyof typeof b] as unknown as number;
     return order === "asc" ? aKey - bKey : bKey - aKey;
   });
 };
 
-const resetData = () => {
-  store.dataToShow = [...store.data];
-};
+onMounted(() => {
+  sortNumbers("EMADiff_FinalScore", "desc");
+});
 </script>
 
 <template>
   <section class="mt-4">
     <div class="w-full">
-      <ScrollArea class="w-full h-[449px]">
-        <table class="w-full sticky min-w-[1060px] top-[10px] z-[200] bg-light">
-          <thead class="sticky top-0 z-[200] bg-light">
-            <tr>
-              <th class="cursor-pointer z-[200]">
-                <DropdownMenu class="w-full">
-                  <DropdownMenuTrigger
-                    class="w-full hover:bg-gray-300 duration-300 bg-light border border-gray-200"
-                    >Company Ticker</DropdownMenuTrigger
-                  >
-                  <DropdownMenuContent class="w-full z-[200]">
-                    <DropdownMenuItem @click="resetData"
-                      >Default</DropdownMenuItem
-                    >
-                    <DropdownMenuItem
-                      @click="sortStrings('Company_Ticker', 'asc')"
-                      >By alphabet</DropdownMenuItem
-                    >
-                    <DropdownMenuItem
-                      @click="sortStrings('Company_Ticker', 'desc')"
-                      >By reversed alphabet</DropdownMenuItem
-                    >
-                  </DropdownMenuContent>
-                </DropdownMenu>
-              </th>
-              <th
-                class="cursor-pointer z-[200] hover:bg-gray-200 rounded-xl duration-300"
-              >
-                <DropdownMenu class="w-full">
-                  <DropdownMenuTrigger
-                    class="w-full hover:bg-gray-300 duration-300 bg-light border border-gray-200"
-                    >Company Name</DropdownMenuTrigger
-                  >
-                  <DropdownMenuContent class="w-full z-[200]">
-                    <DropdownMenuItem @click="resetData"
-                      >Default</DropdownMenuItem
-                    >
-                    <DropdownMenuItem
-                      @click="sortStrings('Company_Name', 'asc')"
-                      >By alphabet</DropdownMenuItem
-                    >
-                    <DropdownMenuItem
-                      @click="sortStrings('Company_Name', 'desc')"
-                      >By reversed alphabet</DropdownMenuItem
-                    >
-                  </DropdownMenuContent>
-                </DropdownMenu>
-              </th>
-              <th
-                class="cursor-pointer z-[200] hover:bg-gray-200 rounded-xl duration-300"
-              >
-                <DropdownMenu class="w-full">
-                  <DropdownMenuTrigger
-                    class="w-full hover:bg-gray-300 duration-300 bg-light border border-gray-200"
-                    >Lot size</DropdownMenuTrigger
-                  >
-                  <DropdownMenuContent class="w-full z-[200]">
-                    <DropdownMenuItem @click="resetData"
-                      >Default</DropdownMenuItem
-                    >
-                    <DropdownMenuItem @click="sortNumbers('Lot Size', 'asc')"
-                      >By the smallest</DropdownMenuItem
-                    >
-                    <DropdownMenuItem @click="sortNumbers('Lot Size', 'desc')"
-                      >By the biggest</DropdownMenuItem
-                    >
-                  </DropdownMenuContent>
-                </DropdownMenu>
-              </th>
-              <th
-                class="cursor-pointer z-[200] hover:bg-gray-200 rounded-xl duration-300"
-              >
-                <DropdownMenu class="w-full">
-                  <DropdownMenuTrigger
-                    class="w-full hover:bg-gray-300 duration-300 bg-light border border-gray-200"
-                    >LTP</DropdownMenuTrigger
-                  >
-                  <DropdownMenuContent class="w-full z-[200]">
-                    <DropdownMenuItem @click="resetData"
-                      >Default</DropdownMenuItem
-                    >
-                    <DropdownMenuItem @click="sortNumbers('LTP', 'asc')"
-                      >By the smallest</DropdownMenuItem
-                    >
-                    <DropdownMenuItem @click="sortNumbers('LTP', 'desc')"
-                      >By the biggest</DropdownMenuItem
-                    >
-                  </DropdownMenuContent>
-                </DropdownMenu>
-              </th>
-              <th
-                class="cursor-pointer z-[200] hover:bg-gray-200 rounded-xl duration-300"
-              >
-                <DropdownMenu class="w-full">
-                  <DropdownMenuTrigger
-                    class="w-full hover:bg-gray-300 duration-300 bg-light border border-gray-200"
-                    >EMA Last Year</DropdownMenuTrigger
-                  >
-                  <DropdownMenuContent class="w-full z-[200]">
-                    <DropdownMenuItem @click="resetData"
-                      >Default</DropdownMenuItem
-                    >
-                    <DropdownMenuItem
-                      @click="sortNumbers('EMA_Last_Year', 'asc')"
-                      >By the smallest</DropdownMenuItem
-                    >
-                    <DropdownMenuItem
-                      @click="sortNumbers('EMA_Last_Year', 'desc')"
-                      >By the biggest</DropdownMenuItem
-                    >
-                  </DropdownMenuContent>
-                </DropdownMenu>
-              </th>
-              <th
-                class="cursor-pointer z-[200] hover:bg-gray-200 rounded-xl duration-300"
-              >
-                <DropdownMenu class="w-full">
-                  <DropdownMenuTrigger
-                    class="w-full hover:bg-gray-300 duration-300 bg-light border border-gray-200"
-                    >EMA Last Month</DropdownMenuTrigger
-                  >
-                  <DropdownMenuContent class="w-full z-[200]">
-                    <DropdownMenuItem @click="resetData"
-                      >Default</DropdownMenuItem
-                    >
-                    <DropdownMenuItem
-                      @click="sortNumbers('EMA_Last_Month', 'asc')"
-                      >By the smallest</DropdownMenuItem
-                    >
-                    <DropdownMenuItem
-                      @click="sortNumbers('EMA_Last_Month', 'desc')"
-                      >By the biggest</DropdownMenuItem
-                    >
-                  </DropdownMenuContent>
-                </DropdownMenu>
-              </th>
-              <th
-                class="cursor-pointer z-[200] hover:bg-gray-200 rounded-xl duration-300"
-              >
-                <DropdownMenu class="w-full">
-                  <DropdownMenuTrigger
-                    class="w-full hover:bg-gray-300 duration-300 bg-light border border-gray-200"
-                    >EMA Diff (Last Month - Last Year) %</DropdownMenuTrigger
-                  >
-                  <DropdownMenuContent class="w-full z-[200]">
-                    <DropdownMenuItem @click="resetData"
-                      >Default</DropdownMenuItem
-                    >
-                    <DropdownMenuItem
-                      @click="
-                        sortNumbers('EMA_Diff_Last_Month_Last_Year', 'asc')
-                      "
-                      >By the smallest</DropdownMenuItem
-                    >
-                    <DropdownMenuItem
-                      @click="
-                        sortNumbers('EMA_Diff_Last_Month_Last_Year', 'desc')
-                      "
-                      >By the biggest</DropdownMenuItem
-                    >
-                  </DropdownMenuContent>
-                </DropdownMenu>
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-            <StockTableItem
-              v-for="ticket in store.dataToShow"
-              :key="ticket"
-              :ticket="ticket"
-            />
-          </tbody>
-        </table>
-        <ScrollBar orientation="horizontal" />
-      </ScrollArea>
+      <Tabs default-value="ema-diff" class="w-full flex justify-between gap-3">
+        <TabsList
+          class="flex flex-col gap-3 max-w-[350px] basis-full h-[140px] p-4"
+        >
+          <TabsTrigger
+            value="ema-diff"
+            class="w-full"
+            @click="sortNumbers('EMADiff_FinalScore', 'desc')"
+          >
+            EMA Diff
+          </TabsTrigger>
+          <TabsTrigger
+            value="super-trend"
+            class="w-full"
+            @click="sortNumbers('SuperTrend_FinalScore', 'desc')"
+          >
+            SuperTrend
+          </TabsTrigger>
+          <TabsTrigger
+            value="squeeze"
+            class="w-full"
+            @click="sortNumbers('SqueezeMomentum_FinalScore', 'desc')"
+          >
+            Squeeze momentum
+          </TabsTrigger>
+        </TabsList>
+        <TabsContent value="ema-diff" class="w-full">
+          <StockTableContainer />
+        </TabsContent>
+        <TabsContent value="super-trend" class="w-full">
+          <StockTableContainer />
+        </TabsContent>
+        <TabsContent value="squeeze" class="w-full">
+          <StockTableContainer />
+        </TabsContent>
+      </Tabs>
     </div>
   </section>
 </template>

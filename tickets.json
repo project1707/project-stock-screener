@@ -1,0 +1,868 @@
+{
+  "data": [
+    {
+      "Company_Ticker": "KODYTECH-SM",
+      "Company_Name": "KodyTech Solutions",
+      "Lot Size": 100,
+      "LTP": 3383.55,
+      "EMA_Last_Year": 1751.341928,
+      "EMA_Last_Month": 3469.349187,
+      "EMA_Diff_Last_Month_Last_Year": 0.507753
+    },
+    {
+      "Company_Ticker": "TECHCORP-XL",
+      "Company_Name": "TechCorp Global",
+      "Lot Size": 150,
+      "LTP": 4599.4,
+      "EMA_Last_Year": 2100.5009,
+      "EMA_Last_Month": 4700.4502,
+      "EMA_Diff_Last_Month_Last_Year": 0.571
+    },
+    {
+      "Company_Ticker": "INNOVATE-TR",
+      "Company_Name": "Innovate Industries",
+      "Lot Size": 200,
+      "LTP": 2899.75,
+      "EMA_Last_Year": 1650.123456,
+      "EMA_Last_Month": 2900.876543,
+      "EMA_Diff_Last_Month_Last_Year": 0.634321
+    },
+    {
+      "Company_Ticker": "NEXTGEN-CP",
+      "Company_Name": "NextGen Technologies",
+      "Lot Size": 120,
+      "LTP": 5120.8,
+      "EMA_Last_Year": 1900.987654,
+      "EMA_Last_Month": 5200.234567,
+      "EMA_Diff_Last_Month_Last_Year": 0.626543
+    },
+    {
+      "Company_Ticker": "FUTURE-AX",
+      "Company_Name": "Future Analytics",
+      "Lot Size": 180,
+      "LTP": 3995.2,
+      "EMA_Last_Year": 1850.345678,
+      "EMA_Last_Month": 4000.54321,
+      "EMA_Diff_Last_Month_Last_Year": 0.609876
+    },
+    {
+      "Company_Ticker": "SOLARTECH-GR",
+      "Company_Name": "SolarTech Enterprises",
+      "Lot Size": 130,
+      "LTP": 2750.95,
+      "EMA_Last_Year": 1600.456789,
+      "EMA_Last_Month": 2800.987654,
+      "EMA_Diff_Last_Month_Last_Year": 0.546789
+    },
+    {
+      "Company_Ticker": "MEDSYST-PR",
+      "Company_Name": "MedSystems Inc.",
+      "Lot Size": 140,
+      "LTP": 3100.45,
+      "EMA_Last_Year": 1700.234567,
+      "EMA_Last_Month": 3200.345678,
+      "EMA_Diff_Last_Month_Last_Year": 0.588765
+    },
+    {
+      "Company_Ticker": "RENEW-VC",
+      "Company_Name": "Renewables Ventures",
+      "Lot Size": 110,
+      "LTP": 3300.2,
+      "EMA_Last_Year": 1750.678901,
+      "EMA_Last_Month": 3400.789012,
+      "EMA_Diff_Last_Month_Last_Year": 0.542345
+    },
+    {
+      "Company_Ticker": "DYNAMIX-JS",
+      "Company_Name": "Dynamix Solutions",
+      "Lot Size": 160,
+      "LTP": 2950.85,
+      "EMA_Last_Year": 1850.345678,
+      "EMA_Last_Month": 3000.56789,
+      "EMA_Diff_Last_Month_Last_Year": 0.60789
+    },
+    {
+      "Company_Ticker": "QUANTUM-RX",
+      "Company_Name": "Quantum Research",
+      "Lot Size": 150,
+      "LTP": 4050.1,
+      "EMA_Last_Year": 2000.56789,
+      "EMA_Last_Month": 4100.678901,
+      "EMA_Diff_Last_Month_Last_Year": 0.612345
+    },
+    {
+      "Company_Ticker": "BIOINNO-IT",
+      "Company_Name": "BioInnovation",
+      "Lot Size": 170,
+      "LTP": 3550.75,
+      "EMA_Last_Year": 1950.678901,
+      "EMA_Last_Month": 3600.789012,
+      "EMA_Diff_Last_Month_Last_Year": 0.628901
+    },
+    {
+      "Company_Ticker": "XTECH-LT",
+      "Company_Name": "XTech Labs",
+      "Lot Size": 140,
+      "LTP": 2850.4,
+      "EMA_Last_Year": 1600.345678,
+      "EMA_Last_Month": 2900.456789,
+      "EMA_Diff_Last_Month_Last_Year": 0.574321
+    },
+    {
+      "Company_Ticker": "VERTEX-HQ",
+      "Company_Name": "Vertex Holdings",
+      "Lot Size": 130,
+      "LTP": 3050.6,
+      "EMA_Last_Year": 1700.234567,
+      "EMA_Last_Month": 3100.56789,
+      "EMA_Diff_Last_Month_Last_Year": 0.575678
+    },
+    {
+      "Company_Ticker": "PHOTON-CT",
+      "Company_Name": "Photon Communications",
+      "Lot Size": 180,
+      "LTP": 3220.8,
+      "EMA_Last_Year": 1850.123456,
+      "EMA_Last_Month": 3300.789012,
+      "EMA_Diff_Last_Month_Last_Year": 0.62
+    },
+    {
+      "Company_Ticker": "SYNERGY-BS",
+      "Company_Name": "Synergy Biotech",
+      "Lot Size": 150,
+      "LTP": 3150.9,
+      "EMA_Last_Year": 1750.56789,
+      "EMA_Last_Month": 3200.654321,
+      "EMA_Diff_Last_Month_Last_Year": 0.57321
+    },
+    {
+      "Company_Ticker": "ECOGEN-PR",
+      "Company_Name": "EcoGen Technologies",
+      "Lot Size": 120,
+      "LTP": 3350.75,
+      "EMA_Last_Year": 1650.456789,
+      "EMA_Last_Month": 3400.876543,
+      "EMA_Diff_Last_Month_Last_Year": 0.575
+    },
+    {
+      "Company_Ticker": "TECHSPARK-NX",
+      "Company_Name": "TechSpark Inc.",
+      "Lot Size": 140,
+      "LTP": 3700.2,
+      "EMA_Last_Year": 1800.56789,
+      "EMA_Last_Month": 3750.345678,
+      "EMA_Diff_Last_Month_Last_Year": 0.621
+    },
+    {
+      "Company_Ticker": "INFOCURE-BX",
+      "Company_Name": "InfoCure Systems",
+      "Lot Size": 160,
+      "LTP": 2900.45,
+      "EMA_Last_Year": 1650.678901,
+      "EMA_Last_Month": 2950.56789,
+      "EMA_Diff_Last_Month_Last_Year": 0.616789
+    },
+    {
+      "Company_Ticker": "CLARITY-MD",
+      "Company_Name": "Clarity Dynamics",
+      "Lot Size": 130,
+      "LTP": 2800.9,
+      "EMA_Last_Year": 1550.789012,
+      "EMA_Last_Month": 2850.876543,
+      "EMA_Diff_Last_Month_Last_Year": 0.618765
+    },
+    {
+      "Company_Ticker": "ORBITAL-JK",
+      "Company_Name": "Orbital Solutions",
+      "Lot Size": 150,
+      "LTP": 3100.75,
+      "EMA_Last_Year": 1750.456789,
+      "EMA_Last_Month": 3200.987654,
+      "EMA_Diff_Last_Month_Last_Year": 0.628543
+    },
+    {
+      "Company_Ticker": "METALPRO-DQ",
+      "Company_Name": "MetalPro Industries",
+      "Lot Size": 140,
+      "LTP": 3400.3,
+      "EMA_Last_Year": 1800.234567,
+      "EMA_Last_Month": 3450.56789,
+      "EMA_Diff_Last_Month_Last_Year": 0.591234
+    },
+    {
+      "Company_Ticker": "ALPHA-SM",
+      "Company_Name": "Alpha Innovations",
+      "Lot Size": 160,
+      "LTP": 2999.9,
+      "EMA_Last_Year": 1900.345678,
+      "EMA_Last_Month": 3000.789012,
+      "EMA_Diff_Last_Month_Last_Year": 0.576543
+    },
+    {
+      "Company_Ticker": "GENESIS-XL",
+      "Company_Name": "Genesis Technologies",
+      "Lot Size": 120,
+      "LTP": 4200.4,
+      "EMA_Last_Year": 2000.456789,
+      "EMA_Last_Month": 4300.123456,
+      "EMA_Diff_Last_Month_Last_Year": 0.54
+    },
+    {
+      "Company_Ticker": "ENERGIZE-TR",
+      "Company_Name": "Energize Power",
+      "Lot Size": 140,
+      "LTP": 3200.6,
+      "EMA_Last_Year": 1800.234567,
+      "EMA_Last_Month": 3300.345678,
+      "EMA_Diff_Last_Month_Last_Year": 0.5
+    },
+    {
+      "Company_Ticker": "BIOTECH-CP",
+      "Company_Name": "BioTech Innovations",
+      "Lot Size": 160,
+      "LTP": 3100.5,
+      "EMA_Last_Year": 1700.456789,
+      "EMA_Last_Month": 3200.56789,
+      "EMA_Diff_Last_Month_Last_Year": 0.588901
+    },
+    {
+      "Company_Ticker": "INFONET-AX",
+      "Company_Name": "InfoNet Solutions",
+      "Lot Size": 130,
+      "LTP": 3050.7,
+      "EMA_Last_Year": 1750.56789,
+      "EMA_Last_Month": 3100.345678,
+      "EMA_Diff_Last_Month_Last_Year": 0.576789
+    },
+    {
+      "Company_Ticker": "TECHSYS-GR",
+      "Company_Name": "TechSystems Inc.",
+      "Lot Size": 150,
+      "LTP": 3550.8,
+      "EMA_Last_Year": 1900.678901,
+      "EMA_Last_Month": 3600.123456,
+      "EMA_Diff_Last_Month_Last_Year": 0.59
+    },
+    {
+      "Company_Ticker": "GLOBALTEK-PR",
+      "Company_Name": "GlobalTek Enterprises",
+      "Lot Size": 170,
+      "LTP": 2900.2,
+      "EMA_Last_Year": 1800.345678,
+      "EMA_Last_Month": 2950.789012,
+      "EMA_Diff_Last_Month_Last_Year": 0.53321
+    },
+    {
+      "Company_Ticker": "NEOTECH-VC",
+      "Company_Name": "NeoTech Innovations",
+      "Lot Size": 140,
+      "LTP": 3200.5,
+      "EMA_Last_Year": 1850.56789,
+      "EMA_Last_Month": 3300.987654,
+      "EMA_Diff_Last_Month_Last_Year": 0.58
+    },
+    {
+      "Company_Ticker": "INNOVATE-SM",
+      "Company_Name": "Innovate Technologies",
+      "Lot Size": 150,
+      "LTP": 3400.9,
+      "EMA_Last_Year": 1950.678901,
+      "EMA_Last_Month": 3500.456789,
+      "EMA_Diff_Last_Month_Last_Year": 0.556789
+    },
+    {
+      "Company_Ticker": "FUTURIST-XL",
+      "Company_Name": "Futurist Enterprises",
+      "Lot Size": 130,
+      "LTP": 3750.4,
+      "EMA_Last_Year": 1850.123456,
+      "EMA_Last_Month": 3800.789012,
+      "EMA_Diff_Last_Month_Last_Year": 0.526789
+    },
+    {
+      "Company_Ticker": "QUANTUM-TR",
+      "Company_Name": "Quantum Technologies",
+      "Lot Size": 160,
+      "LTP": 3150.3,
+      "EMA_Last_Year": 1750.234567,
+      "EMA_Last_Month": 3200.56789,
+      "EMA_Diff_Last_Month_Last_Year": 0.54678
+    },
+    {
+      "Company_Ticker": "KODYTECH-SM",
+      "Company_Name": "KodyTech Solutions",
+      "Lot Size": 100,
+      "LTP": 3383.55,
+      "EMA_Last_Year": 1751.341928,
+      "EMA_Last_Month": 3469.349187,
+      "EMA_Diff_Last_Month_Last_Year": 0.507753
+    },
+    {
+      "Company_Ticker": "TECHCORP-XL",
+      "Company_Name": "TechCorp Global",
+      "Lot Size": 150,
+      "LTP": 4599.4,
+      "EMA_Last_Year": 2100.5009,
+      "EMA_Last_Month": 4700.4502,
+      "EMA_Diff_Last_Month_Last_Year": 0.571
+    },
+    {
+      "Company_Ticker": "INNOVATE-TR",
+      "Company_Name": "Innovate Industries",
+      "Lot Size": 200,
+      "LTP": 2899.75,
+      "EMA_Last_Year": 1650.123456,
+      "EMA_Last_Month": 2900.876543,
+      "EMA_Diff_Last_Month_Last_Year": 0.634321
+    },
+    {
+      "Company_Ticker": "NEXTGEN-CP",
+      "Company_Name": "NextGen Technologies",
+      "Lot Size": 120,
+      "LTP": 5120.8,
+      "EMA_Last_Year": 1900.987654,
+      "EMA_Last_Month": 5200.234567,
+      "EMA_Diff_Last_Month_Last_Year": 0.626543
+    },
+    {
+      "Company_Ticker": "FUTURE-AX",
+      "Company_Name": "Future Analytics",
+      "Lot Size": 180,
+      "LTP": 3995.2,
+      "EMA_Last_Year": 1850.345678,
+      "EMA_Last_Month": 4000.54321,
+      "EMA_Diff_Last_Month_Last_Year": 0.609876
+    },
+    {
+      "Company_Ticker": "SOLARTECH-GR",
+      "Company_Name": "SolarTech Enterprises",
+      "Lot Size": 130,
+      "LTP": 2750.95,
+      "EMA_Last_Year": 1600.456789,
+      "EMA_Last_Month": 2800.987654,
+      "EMA_Diff_Last_Month_Last_Year": 0.546789
+    },
+    {
+      "Company_Ticker": "MEDSYST-PR",
+      "Company_Name": "MedSystems Inc.",
+      "Lot Size": 140,
+      "LTP": 3100.45,
+      "EMA_Last_Year": 1700.234567,
+      "EMA_Last_Month": 3200.345678,
+      "EMA_Diff_Last_Month_Last_Year": 0.588765
+    },
+    {
+      "Company_Ticker": "RENEW-VC",
+      "Company_Name": "Renewables Ventures",
+      "Lot Size": 110,
+      "LTP": 3300.2,
+      "EMA_Last_Year": 1750.678901,
+      "EMA_Last_Month": 3400.789012,
+      "EMA_Diff_Last_Month_Last_Year": 0.542345
+    },
+    {
+      "Company_Ticker": "DYNAMIX-JS",
+      "Company_Name": "Dynamix Solutions",
+      "Lot Size": 160,
+      "LTP": 2950.85,
+      "EMA_Last_Year": 1850.345678,
+      "EMA_Last_Month": 3000.56789,
+      "EMA_Diff_Last_Month_Last_Year": 0.60789
+    },
+    {
+      "Company_Ticker": "QUANTUM-RX",
+      "Company_Name": "Quantum Research",
+      "Lot Size": 150,
+      "LTP": 4050.1,
+      "EMA_Last_Year": 2000.56789,
+      "EMA_Last_Month": 4100.678901,
+      "EMA_Diff_Last_Month_Last_Year": 0.612345
+    },
+    {
+      "Company_Ticker": "BIOINNO-IT",
+      "Company_Name": "BioInnovation",
+      "Lot Size": 170,
+      "LTP": 3550.75,
+      "EMA_Last_Year": 1950.678901,
+      "EMA_Last_Month": 3600.789012,
+      "EMA_Diff_Last_Month_Last_Year": 0.628901
+    },
+    {
+      "Company_Ticker": "XTECH-LT",
+      "Company_Name": "XTech Labs",
+      "Lot Size": 140,
+      "LTP": 2850.4,
+      "EMA_Last_Year": 1600.345678,
+      "EMA_Last_Month": 2900.456789,
+      "EMA_Diff_Last_Month_Last_Year": 0.574321
+    },
+    {
+      "Company_Ticker": "VERTEX-HQ",
+      "Company_Name": "Vertex Holdings",
+      "Lot Size": 130,
+      "LTP": 3050.6,
+      "EMA_Last_Year": 1700.234567,
+      "EMA_Last_Month": 3100.56789,
+      "EMA_Diff_Last_Month_Last_Year": 0.575678
+    },
+    {
+      "Company_Ticker": "PHOTON-CT",
+      "Company_Name": "Photon Communications",
+      "Lot Size": 180,
+      "LTP": 3220.8,
+      "EMA_Last_Year": 1850.123456,
+      "EMA_Last_Month": 3300.789012,
+      "EMA_Diff_Last_Month_Last_Year": 0.62
+    },
+    {
+      "Company_Ticker": "SYNERGY-BS",
+      "Company_Name": "Synergy Biotech",
+      "Lot Size": 150,
+      "LTP": 3150.9,
+      "EMA_Last_Year": 1750.56789,
+      "EMA_Last_Month": 3200.654321,
+      "EMA_Diff_Last_Month_Last_Year": 0.57321
+    },
+    {
+      "Company_Ticker": "ECOGEN-PR",
+      "Company_Name": "EcoGen Technologies",
+      "Lot Size": 120,
+      "LTP": 3350.75,
+      "EMA_Last_Year": 1650.456789,
+      "EMA_Last_Month": 3400.876543,
+      "EMA_Diff_Last_Month_Last_Year": 0.575
+    },
+    {
+      "Company_Ticker": "TECHSPARK-NX",
+      "Company_Name": "TechSpark Inc.",
+      "Lot Size": 140,
+      "LTP": 3700.2,
+      "EMA_Last_Year": 1800.56789,
+      "EMA_Last_Month": 3750.345678,
+      "EMA_Diff_Last_Month_Last_Year": 0.621
+    },
+    {
+      "Company_Ticker": "INFOCURE-BX",
+      "Company_Name": "InfoCure Systems",
+      "Lot Size": 160,
+      "LTP": 2900.45,
+      "EMA_Last_Year": 1650.678901,
+      "EMA_Last_Month": 2950.56789,
+      "EMA_Diff_Last_Month_Last_Year": 0.616789
+    },
+    {
+      "Company_Ticker": "CLARITY-MD",
+      "Company_Name": "Clarity Dynamics",
+      "Lot Size": 130,
+      "LTP": 2800.9,
+      "EMA_Last_Year": 1550.789012,
+      "EMA_Last_Month": 2850.876543,
+      "EMA_Diff_Last_Month_Last_Year": 0.618765
+    },
+    {
+      "Company_Ticker": "ORBITAL-JK",
+      "Company_Name": "Orbital Solutions",
+      "Lot Size": 150,
+      "LTP": 3100.75,
+      "EMA_Last_Year": 1750.456789,
+      "EMA_Last_Month": 3200.987654,
+      "EMA_Diff_Last_Month_Last_Year": 0.628543
+    },
+    {
+      "Company_Ticker": "METALPRO-DQ",
+      "Company_Name": "MetalPro Industries",
+      "Lot Size": 140,
+      "LTP": 3400.3,
+      "EMA_Last_Year": 1800.234567,
+      "EMA_Last_Month": 3450.56789,
+      "EMA_Diff_Last_Month_Last_Year": 0.591234
+    },
+    {
+      "Company_Ticker": "ALPHA-SM",
+      "Company_Name": "Alpha Innovations",
+      "Lot Size": 160,
+      "LTP": 2999.9,
+      "EMA_Last_Year": 1900.345678,
+      "EMA_Last_Month": 3000.789012,
+      "EMA_Diff_Last_Month_Last_Year": 0.576543
+    },
+    {
+      "Company_Ticker": "GENESIS-XL",
+      "Company_Name": "Genesis Technologies",
+      "Lot Size": 120,
+      "LTP": 4200.4,
+      "EMA_Last_Year": 2000.456789,
+      "EMA_Last_Month": 4300.123456,
+      "EMA_Diff_Last_Month_Last_Year": 0.54
+    },
+    {
+      "Company_Ticker": "ENERGIZE-TR",
+      "Company_Name": "Energize Power",
+      "Lot Size": 140,
+      "LTP": 3200.6,
+      "EMA_Last_Year": 1800.234567,
+      "EMA_Last_Month": 3300.345678,
+      "EMA_Diff_Last_Month_Last_Year": 0.5
+    },
+    {
+      "Company_Ticker": "BIOTECH-CP",
+      "Company_Name": "BioTech Innovations",
+      "Lot Size": 160,
+      "LTP": 3100.5,
+      "EMA_Last_Year": 1700.456789,
+      "EMA_Last_Month": 3200.56789,
+      "EMA_Diff_Last_Month_Last_Year": 0.588901
+    },
+    {
+      "Company_Ticker": "INFONET-AX",
+      "Company_Name": "InfoNet Solutions",
+      "Lot Size": 130,
+      "LTP": 3050.7,
+      "EMA_Last_Year": 1750.56789,
+      "EMA_Last_Month": 3100.345678,
+      "EMA_Diff_Last_Month_Last_Year": 0.576789
+    },
+    {
+      "Company_Ticker": "TECHSYS-GR",
+      "Company_Name": "TechSystems Inc.",
+      "Lot Size": 150,
+      "LTP": 3550.8,
+      "EMA_Last_Year": 1900.678901,
+      "EMA_Last_Month": 3600.123456,
+      "EMA_Diff_Last_Month_Last_Year": 0.59
+    },
+    {
+      "Company_Ticker": "GLOBALTEK-PR",
+      "Company_Name": "GlobalTek Enterprises",
+      "Lot Size": 170,
+      "LTP": 2900.2,
+      "EMA_Last_Year": 1800.345678,
+      "EMA_Last_Month": 2950.789012,
+      "EMA_Diff_Last_Month_Last_Year": 0.53321
+    },
+    {
+      "Company_Ticker": "NEOTECH-VC",
+      "Company_Name": "NeoTech Innovations",
+      "Lot Size": 140,
+      "LTP": 3200.5,
+      "EMA_Last_Year": 1850.56789,
+      "EMA_Last_Month": 3300.987654,
+      "EMA_Diff_Last_Month_Last_Year": 0.58
+    },
+    {
+      "Company_Ticker": "INNOVATE-SM",
+      "Company_Name": "Innovate Technologies",
+      "Lot Size": 150,
+      "LTP": 3400.9,
+      "EMA_Last_Year": 1950.678901,
+      "EMA_Last_Month": 3500.456789,
+      "EMA_Diff_Last_Month_Last_Year": 0.556789
+    },
+    {
+      "Company_Ticker": "FUTURIST-XL",
+      "Company_Name": "Futurist Enterprises",
+      "Lot Size": 130,
+      "LTP": 3750.4,
+      "EMA_Last_Year": 1850.123456,
+      "EMA_Last_Month": 3800.789012,
+      "EMA_Diff_Last_Month_Last_Year": 0.526789
+    },
+    {
+      "Company_Ticker": "QUANTUM-TR",
+      "Company_Name": "Quantum Technologies",
+      "Lot Size": 160,
+      "LTP": 3150.3,
+      "EMA_Last_Year": 1750.234567,
+      "EMA_Last_Month": 3200.56789,
+      "EMA_Diff_Last_Month_Last_Year": 0.54678
+    },
+    {
+      "Company_Ticker": "KODYTECH-SM",
+      "Company_Name": "KodyTech Solutions",
+      "Lot Size": 100,
+      "LTP": 3383.55,
+      "EMA_Last_Year": 1751.341928,
+      "EMA_Last_Month": 3469.349187,
+      "EMA_Diff_Last_Month_Last_Year": 0.507753
+    },
+    {
+      "Company_Ticker": "TECHCORP-XL",
+      "Company_Name": "TechCorp Global",
+      "Lot Size": 150,
+      "LTP": 4599.4,
+      "EMA_Last_Year": 2100.5009,
+      "EMA_Last_Month": 4700.4502,
+      "EMA_Diff_Last_Month_Last_Year": 0.571
+    },
+    {
+      "Company_Ticker": "INNOVATE-TR",
+      "Company_Name": "Innovate Industries",
+      "Lot Size": 200,
+      "LTP": 2899.75,
+      "EMA_Last_Year": 1650.123456,
+      "EMA_Last_Month": 2900.876543,
+      "EMA_Diff_Last_Month_Last_Year": 0.634321
+    },
+    {
+      "Company_Ticker": "NEXTGEN-CP",
+      "Company_Name": "NextGen Technologies",
+      "Lot Size": 120,
+      "LTP": 5120.8,
+      "EMA_Last_Year": 1900.987654,
+      "EMA_Last_Month": 5200.234567,
+      "EMA_Diff_Last_Month_Last_Year": 0.626543
+    },
+    {
+      "Company_Ticker": "FUTURE-AX",
+      "Company_Name": "Future Analytics",
+      "Lot Size": 180,
+      "LTP": 3995.2,
+      "EMA_Last_Year": 1850.345678,
+      "EMA_Last_Month": 4000.54321,
+      "EMA_Diff_Last_Month_Last_Year": 0.609876
+    },
+    {
+      "Company_Ticker": "SOLARTECH-GR",
+      "Company_Name": "SolarTech Enterprises",
+      "Lot Size": 130,
+      "LTP": 2750.95,
+      "EMA_Last_Year": 1600.456789,
+      "EMA_Last_Month": 2800.987654,
+      "EMA_Diff_Last_Month_Last_Year": 0.546789
+    },
+    {
+      "Company_Ticker": "MEDSYST-PR",
+      "Company_Name": "MedSystems Inc.",
+      "Lot Size": 140,
+      "LTP": 3100.45,
+      "EMA_Last_Year": 1700.234567,
+      "EMA_Last_Month": 3200.345678,
+      "EMA_Diff_Last_Month_Last_Year": 0.588765
+    },
+    {
+      "Company_Ticker": "RENEW-VC",
+      "Company_Name": "Renewables Ventures",
+      "Lot Size": 110,
+      "LTP": 3300.2,
+      "EMA_Last_Year": 1750.678901,
+      "EMA_Last_Month": 3400.789012,
+      "EMA_Diff_Last_Month_Last_Year": 0.542345
+    },
+    {
+      "Company_Ticker": "DYNAMIX-JS",
+      "Company_Name": "Dynamix Solutions",
+      "Lot Size": 160,
+      "LTP": 2950.85,
+      "EMA_Last_Year": 1850.345678,
+      "EMA_Last_Month": 3000.56789,
+      "EMA_Diff_Last_Month_Last_Year": 0.60789
+    },
+    {
+      "Company_Ticker": "QUANTUM-RX",
+      "Company_Name": "Quantum Research",
+      "Lot Size": 150,
+      "LTP": 4050.1,
+      "EMA_Last_Year": 2000.56789,
+      "EMA_Last_Month": 4100.678901,
+      "EMA_Diff_Last_Month_Last_Year": 0.612345
+    },
+    {
+      "Company_Ticker": "BIOINNO-IT",
+      "Company_Name": "BioInnovation",
+      "Lot Size": 170,
+      "LTP": 3550.75,
+      "EMA_Last_Year": 1950.678901,
+      "EMA_Last_Month": 3600.789012,
+      "EMA_Diff_Last_Month_Last_Year": 0.628901
+    },
+    {
+      "Company_Ticker": "XTECH-LT",
+      "Company_Name": "XTech Labs",
+      "Lot Size": 140,
+      "LTP": 2850.4,
+      "EMA_Last_Year": 1600.345678,
+      "EMA_Last_Month": 2900.456789,
+      "EMA_Diff_Last_Month_Last_Year": 0.574321
+    },
+    {
+      "Company_Ticker": "VERTEX-HQ",
+      "Company_Name": "Vertex Holdings",
+      "Lot Size": 130,
+      "LTP": 3050.6,
+      "EMA_Last_Year": 1700.234567,
+      "EMA_Last_Month": 3100.56789,
+      "EMA_Diff_Last_Month_Last_Year": 0.575678
+    },
+    {
+      "Company_Ticker": "PHOTON-CT",
+      "Company_Name": "Photon Communications",
+      "Lot Size": 180,
+      "LTP": 3220.8,
+      "EMA_Last_Year": 1850.123456,
+      "EMA_Last_Month": 3300.789012,
+      "EMA_Diff_Last_Month_Last_Year": 0.62
+    },
+    {
+      "Company_Ticker": "SYNERGY-BS",
+      "Company_Name": "Synergy Biotech",
+      "Lot Size": 150,
+      "LTP": 3150.9,
+      "EMA_Last_Year": 1750.56789,
+      "EMA_Last_Month": 3200.654321,
+      "EMA_Diff_Last_Month_Last_Year": 0.57321
+    },
+    {
+      "Company_Ticker": "ECOGEN-PR",
+      "Company_Name": "EcoGen Technologies",
+      "Lot Size": 120,
+      "LTP": 3350.75,
+      "EMA_Last_Year": 1650.456789,
+      "EMA_Last_Month": 3400.876543,
+      "EMA_Diff_Last_Month_Last_Year": 0.575
+    },
+    {
+      "Company_Ticker": "TECHSPARK-NX",
+      "Company_Name": "TechSpark Inc.",
+      "Lot Size": 140,
+      "LTP": 3700.2,
+      "EMA_Last_Year": 1800.56789,
+      "EMA_Last_Month": 3750.345678,
+      "EMA_Diff_Last_Month_Last_Year": 0.621
+    },
+    {
+      "Company_Ticker": "INFOCURE-BX",
+      "Company_Name": "InfoCure Systems",
+      "Lot Size": 160,
+      "LTP": 2900.45,
+      "EMA_Last_Year": 1650.678901,
+      "EMA_Last_Month": 2950.56789,
+      "EMA_Diff_Last_Month_Last_Year": 0.616789
+    },
+    {
+      "Company_Ticker": "CLARITY-MD",
+      "Company_Name": "Clarity Dynamics",
+      "Lot Size": 130,
+      "LTP": 2800.9,
+      "EMA_Last_Year": 1550.789012,
+      "EMA_Last_Month": 2850.876543,
+      "EMA_Diff_Last_Month_Last_Year": 0.618765
+    },
+    {
+      "Company_Ticker": "ORBITAL-JK",
+      "Company_Name": "Orbital Solutions",
+      "Lot Size": 150,
+      "LTP": 3100.75,
+      "EMA_Last_Year": 1750.456789,
+      "EMA_Last_Month": 3200.987654,
+      "EMA_Diff_Last_Month_Last_Year": 0.628543
+    },
+    {
+      "Company_Ticker": "METALPRO-DQ",
+      "Company_Name": "MetalPro Industries",
+      "Lot Size": 140,
+      "LTP": 3400.3,
+      "EMA_Last_Year": 1800.234567,
+      "EMA_Last_Month": 3450.56789,
+      "EMA_Diff_Last_Month_Last_Year": 0.591234
+    },
+    {
+      "Company_Ticker": "ALPHA-SM",
+      "Company_Name": "Alpha Innovations",
+      "Lot Size": 160,
+      "LTP": 2999.9,
+      "EMA_Last_Year": 1900.345678,
+      "EMA_Last_Month": 3000.789012,
+      "EMA_Diff_Last_Month_Last_Year": 0.576543
+    },
+    {
+      "Company_Ticker": "GENESIS-XL",
+      "Company_Name": "Genesis Technologies",
+      "Lot Size": 120,
+      "LTP": 4200.4,
+      "EMA_Last_Year": 2000.456789,
+      "EMA_Last_Month": 4300.123456,
+      "EMA_Diff_Last_Month_Last_Year": 0.54
+    },
+    {
+      "Company_Ticker": "ENERGIZE-TR",
+      "Company_Name": "Energize Power",
+      "Lot Size": 140,
+      "LTP": 3200.6,
+      "EMA_Last_Year": 1800.234567,
+      "EMA_Last_Month": 3300.345678,
+      "EMA_Diff_Last_Month_Last_Year": 0.5
+    },
+    {
+      "Company_Ticker": "BIOTECH-CP",
+      "Company_Name": "BioTech Innovations",
+      "Lot Size": 160,
+      "LTP": 3100.5,
+      "EMA_Last_Year": 1700.456789,
+      "EMA_Last_Month": 3200.56789,
+      "EMA_Diff_Last_Month_Last_Year": 0.588901
+    },
+    {
+      "Company_Ticker": "INFONET-AX",
+      "Company_Name": "InfoNet Solutions",
+      "Lot Size": 130,
+      "LTP": 3050.7,
+      "EMA_Last_Year": 1750.56789,
+      "EMA_Last_Month": 3100.345678,
+      "EMA_Diff_Last_Month_Last_Year": 0.576789
+    },
+    {
+      "Company_Ticker": "TECHSYS-GR",
+      "Company_Name": "TechSystems Inc.",
+      "Lot Size": 150,
+      "LTP": 3550.8,
+      "EMA_Last_Year": 1900.678901,
+      "EMA_Last_Month": 3600.123456,
+      "EMA_Diff_Last_Month_Last_Year": 0.59
+    },
+    {
+      "Company_Ticker": "GLOBALTEK-PR",
+      "Company_Name": "GlobalTek Enterprises",
+      "Lot Size": 170,
+      "LTP": 2900.2,
+      "EMA_Last_Year": 1800.345678,
+      "EMA_Last_Month": 2950.789012,
+      "EMA_Diff_Last_Month_Last_Year": 0.53321
+    },
+    {
+      "Company_Ticker": "NEOTECH-VC",
+      "Company_Name": "NeoTech Innovations",
+      "Lot Size": 140,
+      "LTP": 3200.5,
+      "EMA_Last_Year": 1850.56789,
+      "EMA_Last_Month": 3300.987654,
+      "EMA_Diff_Last_Month_Last_Year": 0.58
+    },
+    {
+      "Company_Ticker": "INNOVATE-SM",
+      "Company_Name": "Innovate Technologies",
+      "Lot Size": 150,
+      "LTP": 3400.9,
+      "EMA_Last_Year": 1950.678901,
+      "EMA_Last_Month": 3500.456789,
+      "EMA_Diff_Last_Month_Last_Year": 0.556789
+    },
+    {
+      "Company_Ticker": "FUTURIST-XL",
+      "Company_Name": "Futurist Enterprises",
+      "Lot Size": 130,
+      "LTP": 3750.4,
+      "EMA_Last_Year": 1850.123456,
+      "EMA_Last_Month": 3800.789012,
+      "EMA_Diff_Last_Month_Last_Year": 0.526789
+    },
+    {
+      "Company_Ticker": "QUANTUM-TR",
+      "Company_Name": "Quantum Technologies",
+      "Lot Size": 160,
+      "LTP": 3150.3,
+      "EMA_Last_Year": 1750.234567,
+      "EMA_Last_Month": 3200.56789,
+      "EMA_Diff_Last_Month_Last_Year": 0.54678
+    }
+  ]
+}

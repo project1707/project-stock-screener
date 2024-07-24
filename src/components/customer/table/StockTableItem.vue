@@ -6,12 +6,12 @@ defineProps({
 
 <template>
   <tr>
-    <td class="duration-300 border-b">{{ ticket?.Company_Ticker }}</td>
-    <td class="duration-300 border-b">{{ ticket?.Company_Name }}</td>
-    <td class="duration-300 border-b">{{ ticket?.["Lot Size"] }}</td>
+    <td class="duration-300 border-b">{{ ticket?.id }}</td>
+    <td class="duration-300 border-b">{{ ticket?.companyName }}</td>
+    <td class="duration-300 border-b">{{ ticket?.lotSize }}</td>
     <td class="duration-300 border-b">{{ ticket?.LTP }}</td>
-    <td class="duration-300 border-b">{{ ticket?.EMA_Last_Month }}</td>
-    <td class="duration-300 border-b">{{ ticket?.EMA_Last_Year }}</td>
+    <td class="duration-300 border-b">{{ ticket?.EMADiff }}</td>
+    <td class="duration-300 border-b">{{ ticket?.EMADiff_FinalScore }}</td>
     <td class="duration-300 border-b">
       {{ ticket?.EMA_Diff_Last_Month_Last_Year }}
     </td>

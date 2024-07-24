@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import StockFooter from "./customer/footer/StockFooter.vue";
 import StockTable from "./customer/table/StockTable.vue";
 import StockTableItem from "./customer/table/StockTableItem.vue";
+import StockTableContainer from "./customer/table/StockTableContainer.vue";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { ScrollBar } from "@/components/ui/scroll-area";
 import StockPagination from "@/components/ui/myPagination/StockPagination.vue";
@@ -26,6 +27,7 @@ const components: Component[] = [
   { name: "ScrollBar ", component: ScrollBar },
   { name: "StockPagination ", component: StockPagination },
   { name: "StockBurgerMenu ", component: StockBurgerMenu },
+  { name: "StockTableContainer ", component: StockTableContainer },
 ];
 
 const plugin = {
