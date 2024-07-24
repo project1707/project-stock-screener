@@ -66,10 +66,10 @@ console.log(store.dataToShow);
         </TabsList>
         <TabsContent value="ema-diff" class="w-full">
           <ScrollArea
-            class="h-[449px] basis-full max-w-[964px] min-w-[818px] overflow-hidden"
+            class="h-[449px] basis-full max-w-[964px] min-w-[818px] overflow-hidden border rounded-xl"
           >
-            <table class="w-full sticky z-[200] bg-light">
-              <thead class="sticky top-0 z-[200] bg-light">
+            <table class="w-full sticky z-[200] bg-light p-4">
+              <thead class="sticky top-0 z-[200] bg-light rounded-t-xl">
                 <tr>
                   <th class="bg-light">
                     <p class="border border-gray-200">ID</p>
@@ -110,10 +110,10 @@ console.log(store.dataToShow);
         </TabsContent>
         <TabsContent value="super-trend" class="w-full">
           <ScrollArea
-            class="h-[449px] basis-full max-w-[964px] min-w-[818px] overflow-hidden"
+            class="rounded-xl h-[449px] basis-full max-w-[964px] border min-w-[818px] overflow-hidden"
           >
             <table class="w-full sticky z-[200] bg-light">
-              <thead class="sticky top-0 z-[200] bg-light">
+              <thead class="sticky top-0 z-[200] bg-light rounded-t-xl">
                 <tr>
                   <th class="bg-light">
                     <p class="border border-gray-200">ID</p>
@@ -156,10 +156,10 @@ console.log(store.dataToShow);
         </TabsContent>
         <TabsContent value="squeeze" class="w-full">
           <ScrollArea
-            class="h-[449px] basis-full max-w-[964px] min-w-[818px] overflow-hidden"
+            class="rounded-xl h-[449px] basis-full border max-w-[964px] min-w-[818px] overflow-hidden"
           >
             <table class="w-full sticky z-[200] bg-light">
-              <thead class="sticky top-0 z-[200] bg-light">
+              <thead class="sticky top-0 z-[200] bg-light rounded-t-xl">
                 <tr>
                   <th class="bg-light">
                     <p class="border border-gray-200">ID</p>

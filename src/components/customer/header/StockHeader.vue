@@ -38,7 +38,6 @@ const searchTickets = () => {
           v-model="inputData"
           @input.prevent="searchTickets"
         />
-        {{ inputData }}
         <Button type="submit" @click.prevent="searchTickets">Search</Button>
       </form>
       <StockBurgerMenu />
