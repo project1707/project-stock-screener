@@ -41,15 +41,13 @@ const resetData = () => {
         <table class="w-full sticky min-w-[1060px] top-[10px] z-[200] bg-light">
           <thead class="sticky top-0 z-[200] bg-light">
             <tr>
-              <th
-                class="cursor-pointer hover:bg-gray-200 rounded-xl duration-300"
-              >
+              <th class="cursor-pointer z-[200]">
                 <DropdownMenu class="w-full">
                   <DropdownMenuTrigger
-                    class="w-full bg-light border border-gray-200"
+                    class="w-full hover:bg-gray-300 duration-300 bg-light border border-gray-200"
                     >Company Ticker</DropdownMenuTrigger
                   >
-                  <DropdownMenuContent class="w-full">
+                  <DropdownMenuContent class="w-full z-[200]">
                     <DropdownMenuItem @click="resetData"
                       >Default</DropdownMenuItem
                     >
@@ -65,14 +63,14 @@ const resetData = () => {
                 </DropdownMenu>
               </th>
               <th
-                class="cursor-pointer hover:bg-gray-200 rounded-xl duration-300"
+                class="cursor-pointer z-[200] hover:bg-gray-200 rounded-xl duration-300"
               >
                 <DropdownMenu class="w-full">
                   <DropdownMenuTrigger
-                    class="w-full bg-light border border-gray-200"
+                    class="w-full hover:bg-gray-300 duration-300 bg-light border border-gray-200"
                     >Company Name</DropdownMenuTrigger
                   >
-                  <DropdownMenuContent class="w-full">
+                  <DropdownMenuContent class="w-full z-[200]">
                     <DropdownMenuItem @click="resetData"
                       >Default</DropdownMenuItem
                     >
@@ -88,14 +86,14 @@ const resetData = () => {
                 </DropdownMenu>
               </th>
               <th
-                class="cursor-pointer hover:bg-gray-200 rounded-xl duration-300"
+                class="cursor-pointer z-[200] hover:bg-gray-200 rounded-xl duration-300"
               >
                 <DropdownMenu class="w-full">
                   <DropdownMenuTrigger
-                    class="w-full bg-light border border-gray-200"
+                    class="w-full hover:bg-gray-300 duration-300 bg-light border border-gray-200"
                     >Lot size</DropdownMenuTrigger
                   >
-                  <DropdownMenuContent class="w-full">
+                  <DropdownMenuContent class="w-full z-[200]">
                     <DropdownMenuItem @click="resetData"
                       >Default</DropdownMenuItem
                     >
@@ -109,14 +107,14 @@ const resetData = () => {
                 </DropdownMenu>
               </th>
               <th
-                class="cursor-pointer hover:bg-gray-200 rounded-xl duration-300"
+                class="cursor-pointer z-[200] hover:bg-gray-200 rounded-xl duration-300"
               >
                 <DropdownMenu class="w-full">
                   <DropdownMenuTrigger
-                    class="w-full bg-light border border-gray-200"
+                    class="w-full hover:bg-gray-300 duration-300 bg-light border border-gray-200"
                     >LTP</DropdownMenuTrigger
                   >
-                  <DropdownMenuContent class="w-full">
+                  <DropdownMenuContent class="w-full z-[200]">
                     <DropdownMenuItem @click="resetData"
                       >Default</DropdownMenuItem
                     >
@@ -130,14 +128,14 @@ const resetData = () => {
                 </DropdownMenu>
               </th>
               <th
-                class="cursor-pointer hover:bg-gray-200 rounded-xl duration-300"
+                class="cursor-pointer z-[200] hover:bg-gray-200 rounded-xl duration-300"
               >
                 <DropdownMenu class="w-full">
                   <DropdownMenuTrigger
-                    class="w-full bg-light border border-gray-200"
+                    class="w-full hover:bg-gray-300 duration-300 bg-light border border-gray-200"
                     >EMA Last Year</DropdownMenuTrigger
                   >
-                  <DropdownMenuContent class="w-full">
+                  <DropdownMenuContent class="w-full z-[200]">
                     <DropdownMenuItem @click="resetData"
                       >Default</DropdownMenuItem
                     >
@@ -153,14 +151,14 @@ const resetData = () => {
                 </DropdownMenu>
               </th>
               <th
-                class="cursor-pointer hover:bg-gray-200 rounded-xl duration-300"
+                class="cursor-pointer z-[200] hover:bg-gray-200 rounded-xl duration-300"
               >
                 <DropdownMenu class="w-full">
                   <DropdownMenuTrigger
-                    class="w-full bg-light border border-gray-200"
+                    class="w-full hover:bg-gray-300 duration-300 bg-light border border-gray-200"
                     >EMA Last Month</DropdownMenuTrigger
                   >
-                  <DropdownMenuContent class="w-full">
+                  <DropdownMenuContent class="w-full z-[200]">
                     <DropdownMenuItem @click="resetData"
                       >Default</DropdownMenuItem
                     >
@@ -176,14 +174,14 @@ const resetData = () => {
                 </DropdownMenu>
               </th>
               <th
-                class="cursor-pointer hover:bg-gray-200 rounded-xl duration-300"
+                class="cursor-pointer z-[200] hover:bg-gray-200 rounded-xl duration-300"
               >
                 <DropdownMenu class="w-full">
                   <DropdownMenuTrigger
-                    class="w-full bg-light border border-gray-200"
+                    class="w-full hover:bg-gray-300 duration-300 bg-light border border-gray-200"
                     >EMA Diff (Last Month - Last Year) %</DropdownMenuTrigger
                   >
-                  <DropdownMenuContent class="w-full">
+                  <DropdownMenuContent class="w-full z-[200]">
                     <DropdownMenuItem @click="resetData"
                       >Default</DropdownMenuItem
                     >
