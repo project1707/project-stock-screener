@@ -6,7 +6,8 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { ref } from "vue";
+
+import { ScrollBar } from "@/components/ui/scroll-area";
 
 const store = useCounterStore();
 
@@ -31,26 +32,17 @@ const sortNumbers = (key: string, order: "asc" | "desc") => {
 const resetData = () => {
   store.dataToShow = [...store.data];
 };
-
-// coping slicedArray
-const slicedArray = ref<object[]>([]);
-
-const copyArr = (arr: object[]) => {
-  slicedArray.value = [...arr];
-
-  console.log(slicedArray.value);
-};
 </script>
 
 <template>
-  <section class="mt-4 min-w-[1060px]">
+  <section class="mt-4">
     <div class="w-full">
       <ScrollArea class="w-full h-[449px]">
-        <table class="w-full">
+        <table class="w-full sticky min-w-[1060px] top-[10px] z-[200] bg-light">
           <thead class="sticky top-0 z-[200] bg-light">
             <tr>
               <th
-                class="z-[200] cursor-pointer hover:bg-gray-200 rounded-xl duration-300"
+                class="cursor-pointer hover:bg-gray-200 rounded-xl duration-300"
               >
                 <DropdownMenu class="w-full">
                   <DropdownMenuTrigger
@@ -73,7 +65,7 @@ const copyArr = (arr: object[]) => {
                 </DropdownMenu>
               </th>
               <th
-                class="z-[200] cursor-pointer hover:bg-gray-200 rounded-xl duration-300"
+                class="cursor-pointer hover:bg-gray-200 rounded-xl duration-300"
               >
                 <DropdownMenu class="w-full">
                   <DropdownMenuTrigger
@@ -96,7 +88,7 @@ const copyArr = (arr: object[]) => {
                 </DropdownMenu>
               </th>
               <th
-                class="z-[200] cursor-pointer hover:bg-gray-200 rounded-xl duration-300"
+                class="cursor-pointer hover:bg-gray-200 rounded-xl duration-300"
               >
                 <DropdownMenu class="w-full">
                   <DropdownMenuTrigger
@@ -117,7 +109,7 @@ const copyArr = (arr: object[]) => {
                 </DropdownMenu>
               </th>
               <th
-                class="z-[200] cursor-pointer hover:bg-gray-200 rounded-xl duration-300"
+                class="cursor-pointer hover:bg-gray-200 rounded-xl duration-300"
               >
                 <DropdownMenu class="w-full">
                   <DropdownMenuTrigger
@@ -138,7 +130,7 @@ const copyArr = (arr: object[]) => {
                 </DropdownMenu>
               </th>
               <th
-                class="z-[200] cursor-pointer hover:bg-gray-200 rounded-xl duration-300"
+                class="cursor-pointer hover:bg-gray-200 rounded-xl duration-300"
               >
                 <DropdownMenu class="w-full">
                   <DropdownMenuTrigger
@@ -161,7 +153,7 @@ const copyArr = (arr: object[]) => {
                 </DropdownMenu>
               </th>
               <th
-                class="z-[200] cursor-pointer hover:bg-gray-200 rounded-xl duration-300"
+                class="cursor-pointer hover:bg-gray-200 rounded-xl duration-300"
               >
                 <DropdownMenu class="w-full">
                   <DropdownMenuTrigger
@@ -184,7 +176,7 @@ const copyArr = (arr: object[]) => {
                 </DropdownMenu>
               </th>
               <th
-                class="z-[200] cursor-pointer hover:bg-gray-200 rounded-xl duration-300"
+                class="cursor-pointer hover:bg-gray-200 rounded-xl duration-300"
               >
                 <DropdownMenu class="w-full">
                   <DropdownMenuTrigger
@@ -220,8 +212,8 @@ const copyArr = (arr: object[]) => {
             />
           </tbody>
         </table>
+        <ScrollBar orientation="horizontal" />
       </ScrollArea>
-      <StockPagination />
     </div>
   </section>
 </template>
