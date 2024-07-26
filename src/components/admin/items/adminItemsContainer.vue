@@ -1,7 +1,7 @@
 <script setup lang="ts">
+import AdminItemDialog from "./adminItemDialog.vue";
 import { useCounterStore } from "@/stores/counter";
 import { ref } from "vue";
-
 const store = useCounterStore();
 
 const inputData = ref("");
@@ -13,8 +13,6 @@ const searchTickets = () => {
 
   console.log(store.dataToShow);
 };
-
-import { SquarePlus } from "lucide-vue-next";
 </script>
 
 <template>
@@ -30,14 +28,9 @@ import { SquarePlus } from "lucide-vue-next";
       />
       <Button type="submit" @click.prevent="searchTickets">Search</Button>
     </form>
-    <button
-      class="bg-green-500 h text-light px-4 py-2 rounded-lg flex-between gap-3 border hover:text-green-500 border-green-500 hover:bg-light duration-300"
-    >
-      <p class="text-[14px] w-[85px]">Add new item</p>
-      <SquarePlus color="#ffffff" class="w-7 h-7 icon" />
-    </button>
+    <AdminItemDialog />
   </div>
-  <StockTable class="m-auto" />
+  <StockItemTable />
 </template>
 
 <style scoped>

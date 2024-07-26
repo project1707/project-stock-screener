@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import AdminItemsContainer from "@/components/admin/items/adminItemsContainer.vue";
-import adminUsersContainer from "@/components/admin/users/adminUsersContainer.vue";
+import adminUsersContainer from "@/components/admin/users/adminUserContainer.vue";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 </script>
 

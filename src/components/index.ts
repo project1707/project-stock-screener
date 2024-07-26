@@ -3,8 +3,7 @@ import StockHeader from "./customer/header/StockHeader.vue";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import StockFooter from "./customer/footer/StockFooter.vue";
-import StockTable from "./customer/table/StockTable.vue";
-import StockTableContainer from "./customer/table/StockTableContainer.vue";
+import StockItemTable from "./customer/table/StockItemTable.vue";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { ScrollBar } from "@/components/ui/scroll-area";
 import StockPagination from "@/components/ui/myPagination/StockPagination.vue";
@@ -21,12 +20,11 @@ const components: Component[] = [
   { name: "Input", component: Input },
   { name: "Button", component: Button },
   { name: "StockFooter", component: StockFooter },
-  { name: "StockTable", component: StockTable },
+  { name: "StockItemTable", component: StockItemTable },
   { name: "ScrollArea", component: ScrollArea },
   { name: "ScrollBar ", component: ScrollBar },
   { name: "StockPagination ", component: StockPagination },
   { name: "StockBurgerMenu ", component: StockBurgerMenu },
-  { name: "StockTableContainer ", component: StockTableContainer },
   { name: "adminItemsContainer ", component: adminItemsContainer },
 ];
 

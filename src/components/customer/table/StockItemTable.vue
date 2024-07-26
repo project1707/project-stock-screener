@@ -1,36 +1,9 @@
 <script setup lang="ts">
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import StockTableContainer from "./StockTableContainer.vue";
 import { useCounterStore } from "@/stores/counter";
-import { onMounted } from "vue";
-import { supabase } from "../../../lib/supabaseClient";
+import StockPagination from "@/components/ui/myPagination/StockPagination.vue";
 
 const store = useCounterStore();
-
-const sortNumbers = (key: string, order: "asc" | "desc") => {
-  // Create a copy of the original array to avoid mutating it directly
-  store.dataToShow = [...store.data];
-
-  store.dataToShow.sort((a, b) => {
-    // Ensure that the values to be compared are numbers
-    const aKey = Number(a[key as keyof typeof a]);
-    const bKey = Number(b[key as keyof typeof b]);
-
-    // If the conversion to number fails, handle it gracefully (optional)
-    if (isNaN(aKey) || isNaN(bKey)) {
-      throw new Error(
-        `The key "${key}" must correspond to numerical values in the objects.`
-      );
-    }
-
-    // Perform the comparison based on the order parameter
-    return order === "asc" ? aKey - bKey : bKey - aKey;
-  });
-};
-
-onMounted(() => {
-  sortNumbers("EMADiff_FinalScore", "desc");
-});
 
 console.log(store.dataToShow);
 </script>
@@ -45,28 +18,41 @@ console.log(store.dataToShow);
           <TabsTrigger
             value="ema-diff"
             class="w-full"
-            @click="sortNumbers('EMADiff_FinalScore', 'desc')"
+            @click="
+              store.sortNumbers('EMADiff_FinalScore', 'desc');
+              store.currentFilter = 'EMADiff_FinalScore';
+            "
           >
             EMA Diff
           </TabsTrigger>
           <TabsTrigger
             value="super-trend"
             class="w-full"
-            @click="sortNumbers('SuperTrend_FinalScore', 'desc')"
+            @click="
+              store.sortNumbers('superTrend_FinalScore', 'desc');
+              store.currentFilter = 'superTrend_FinalScore';
+            "
           >
             SuperTrend
           </TabsTrigger>
           <TabsTrigger
             value="squeeze"
             class="w-full"
-            @click="sortNumbers('SqueezeMomentum_FinalScore', 'desc')"
+            @click="
+              store.sortNumbers(
+                'squeezeMomentum_LinearRegressionValueDelta',
+                'desc'
+              );
+              store.currentFilter =
+                'squeezeMomentum_LinearRegressionValueDelta';
+            "
           >
             Squeeze momentum
           </TabsTrigger>
         </TabsList>
         <TabsContent value="ema-diff" class="w-full">
           <ScrollArea
-            class="h-[449px] basis-full max-w-[964px] min-w-[818px] overflow-hidden border rounded-xl"
+            class="h-[437px] basis-full max-w-[964px] min-w-[818px] overflow-hIDden border rounded-xl"
           >
             <table class="w-full sticky z-[200] bg-light p-4">
               <thead class="sticky top-0 z-[200] bg-light rounded-t-xl">
@@ -92,10 +78,10 @@ console.log(store.dataToShow);
                 </tr>
               </thead>
               <tbody>
-                <tr v-for="ticket in store.dataToShow" :key="ticket.id">
-                  <td class="duration-300 border-b">{{ ticket?.id }}</td>
+                <tr v-for="ticket in store.dataToShow" :key="ticket.ID">
+                  <td class="duration-300 border-b">{{ ticket?.ID }}</td>
                   <td class="duration-300 border-b">
-                    {{ ticket?.companyName }}
+                    {{ ticket?.companyId }}
                   </td>
                   <td class="duration-300 border-b">{{ ticket?.lotSize }}</td>
                   <td class="duration-300 border-b">{{ ticket?.LTP }}</td>
@@ -110,7 +96,7 @@ console.log(store.dataToShow);
         </TabsContent>
         <TabsContent value="super-trend" class="w-full">
           <ScrollArea
-            class="rounded-xl h-[449px] basis-full max-w-[964px] border min-w-[818px] overflow-hidden"
+            class="rounded-xl h-[437px] basis-full max-w-[964px] border min-w-[818px] overflow-hIDden"
           >
             <table class="w-full sticky z-[200] bg-light">
               <thead class="sticky top-0 z-[200] bg-light rounded-t-xl">
@@ -136,18 +122,18 @@ console.log(store.dataToShow);
                 </tr>
               </thead>
               <tbody>
-                <tr v-for="ticket in store.dataToShow" :key="ticket.id">
-                  <td class="duration-300 border-b">{{ ticket?.id }}</td>
+                <tr v-for="ticket in store.dataToShow" :key="ticket.ID">
+                  <td class="duration-300 border-b">{{ ticket?.ID }}</td>
                   <td class="duration-300 border-b">
-                    {{ ticket?.companyName }}
+                    {{ ticket?.companyId }}
                   </td>
                   <td class="duration-300 border-b">{{ ticket?.lotSize }}</td>
                   <td class="duration-300 border-b">{{ ticket?.LTP }}</td>
                   <td class="duration-300 border-b">
-                    {{ ticket?.SuperTrend }}
+                    {{ ticket?.superTrend }}
                   </td>
                   <td class="duration-300 border-b">
-                    {{ ticket?.SuperTrend_FinalScore }}
+                    {{ ticket?.superTrend_FinalScore }}
                   </td>
                 </tr>
               </tbody>
@@ -156,7 +142,7 @@ console.log(store.dataToShow);
         </TabsContent>
         <TabsContent value="squeeze" class="w-full">
           <ScrollArea
-            class="rounded-xl h-[449px] basis-full border max-w-[964px] min-w-[818px] overflow-hidden"
+            class="rounded-xl h-[437px] basis-full border max-w-[964px] min-w-[818px] overflow-hIDden"
           >
             <table class="w-full sticky z-[200] bg-light">
               <thead class="sticky top-0 z-[200] bg-light rounded-t-xl">
@@ -184,18 +170,18 @@ console.log(store.dataToShow);
                 </tr>
               </thead>
               <tbody>
-                <tr v-for="ticket in store.dataToShow" :key="ticket.id">
-                  <td class="duration-300 border-b">{{ ticket?.id }}</td>
+                <tr v-for="ticket in store.dataToShow" :key="ticket.ID">
+                  <td class="duration-300 border-b">{{ ticket?.ID }}</td>
                   <td class="duration-300 border-b">
-                    {{ ticket?.companyName }}
+                    {{ ticket?.companyId }}
                   </td>
                   <td class="duration-300 border-b">{{ ticket?.lotSize }}</td>
                   <td class="duration-300 border-b">{{ ticket?.LTP }}</td>
                   <td class="duration-300 border-b">
-                    {{ ticket?.SqueezeMomentum }}
+                    {{ ticket?.squeezeMomentum }}
                   </td>
                   <td class="duration-300 border-b">
-                    {{ ticket?.SqueezeMomentum_FinalScore }}
+                    {{ ticket?.squeezeMomentum_LinearRegressionValueDelta }}
                   </td>
                 </tr>
               </tbody>
@@ -203,6 +189,7 @@ console.log(store.dataToShow);
           </ScrollArea>
         </TabsContent>
       </Tabs>
+      <StockPagination />
     </div>
   </section>
 </template>

@@ -4,7 +4,7 @@
   <div class="min-h-screen flex flex-col">
     <StockHeader />
     <main class="flex-auto">
-      <StockTable />
+      <StockItemTable />
     </main>
     <StockFooter />
   </div>

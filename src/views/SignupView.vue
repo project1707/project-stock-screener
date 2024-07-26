@@ -1,4 +1,23 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { supabase } from "@/lib/supabaseClient";
+import { ref } from "vue";
+
+const email = ref("");
+const password = ref("");
+
+const signUp = async () => {
+  const { data, error } = await supabase.auth.signUp({
+    email: email.value,
+    password: password.value,
+  });
+
+  console.log(data.user);
+
+  if (error) {
+    console.log(`Error with sign up: ${error}`);
+  }
+};
+</script>
 
 <template>
   <router-link :to="{ name: 'home' }">
@@ -8,23 +27,21 @@
     <form class="p-4 bg-light rounded-lg border text-center w-[60vw] m-auto">
       <h1 class="text-3xl font-bold">Sign up</h1>
       <label class="flex flex-col items-center gap-2 mt-4">
-        <label class="w-full flex-between gap-2">
-          <Input
-            type="text"
-            placeholder="Nickname..."
-            class="w-full"
-            required
-          />
-          <Input type="number" placeholder="Age..." class="w-full" />
-        </label>
-        <Input type="search" placeholder="Email..." class="w-full" required />
+        <Input
+          type="search"
+          placeholder="Email..."
+          v-model="email"
+          class="w-full"
+          required
+        />
         <Input
           type="password"
           placeholder="Password..."
           class="w-full"
+          v-model="password"
           required
         />
-        <Button class="w-full">Sign up</Button>
+        <Button class="w-full" @click.prevent="signUp">Sign up</Button>
       </label>
       <a
         href="#"
