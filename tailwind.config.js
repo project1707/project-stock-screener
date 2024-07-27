@@ -31,7 +31,7 @@ module.exports = {
 
         laptop: { max: "1024px" },
 
-        desktop: { max: "1200px" },
+        desktop: { max: "1280px" },
       },
       colors: {
         border: "hsl(var(--border))",

@@ -1,17 +1,28 @@
 <script setup lang="ts">
 import AdminItemDialog from "./adminItemDialog.vue";
-import { useCounterStore } from "@/stores/counter";
+import adminItemTable from "./adminItemTable.vue";
+import { useCounterStore } from "../../../stores/counter";
 import { ref } from "vue";
+import { supabase } from "@/lib/supabaseClient";
 const store = useCounterStore();
 
 const inputData = ref("");
 
-const searchTickets = () => {
-  store.dataToShow = store.data.filter((el: { companyName: string }) => {
-    return el.companyName.toUpperCase().includes(inputData.value.toUpperCase());
-  });
-
-  console.log(store.dataToShow);
+const searchTickets = async () => {
+  if (inputData.value.length !== 0) {
+    const { data, error } = await supabase
+      .from("items-table")
+      .select()
+      .textSearch("companyId", inputData.value);
+    if (inputData.value.length === 0) {
+      store.fetchData();
+    }
+    if (error) {
+      console.log(`Error with serching items: ${error}`);
+    } else {
+      store.dataToShow = data;
+    }
+  }
 };
 </script>
 
@@ -30,7 +41,7 @@ const searchTickets = () => {
     </form>
     <AdminItemDialog />
   </div>
-  <StockItemTable />
+  <adminItemTable />
 </template>
 
 <style scoped>

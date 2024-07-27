@@ -102,7 +102,7 @@ watch(currentPage, () => {
             as-child
           >
             <Button
-              class="w-10 h-10 p-0 text-dark"
+              class="w-10 h-10 p-0 text-dark tablets:w-8 tablets:h-8"
               :variant="item.value === page ? 'default' : 'outline'"
               @click="currentPage = item.value"
             >

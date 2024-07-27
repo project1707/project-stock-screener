@@ -1,7 +1,26 @@
 <script setup lang="ts">
+import { supabase } from "@/lib/supabaseClient";
 import { useCounterStore } from "@/stores/counter";
+import { onMounted } from "vue";
 
 const store = useCounterStore();
+
+async function getUsers() {
+  const { data, error } = await supabase.auth.admin.listUsers();
+
+  if (error) {
+    console.error("Error fetching users:", error);
+    return;
+  }
+
+  console.log("Registered users:", data);
+}
+
+getUsers();
+
+onMounted(() => {
+  getUsers();
+});
 </script>
 
 <template>

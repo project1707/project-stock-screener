@@ -12,6 +12,11 @@ import { ref } from "vue";
 import Papa from "papaparse";
 import type { ParseResult } from "papaparse";
 import { supabase } from "@/lib/supabaseClient";
+import DialogClose from "@/components/ui/dialog/DialogClose.vue";
+
+import { useCounterStore } from "@/stores/counter";
+
+const store = useCounterStore();
 
 const CSVData = ref<File | null>(null);
 const jsonData = ref<any[]>([]);
@@ -34,7 +39,7 @@ const uploadItems = async () => {
           ID: Number(el[0]),
           companyId: el[1],
           lotSize: Number(el[2]),
-          LTP: Number(el[3]),
+          LTP: Number(el[3].slice(2, el[3].length)),
           EMADiff: Number(el[4]),
           EMADiff_FinalScore: Number(el[5].slice(0, el[5].length - 1)),
           superTrend_Hide: Number(el[6]),
@@ -56,6 +61,11 @@ const uploadItems = async () => {
 
     if (error) {
       console.log(`Error with uploading data: ${error}`);
+    } else {
+      store.dataToShow = [];
+      setTimeout(() => {
+        store.fetchData();
+      }, 5000);
     }
   });
 };
@@ -72,11 +82,9 @@ const parseFile = async (file: File | null) => {
     console.log(jsonData.value);
 
     setTimeout(() => {
-      jsonData.value = jsonData.value
-        .map((row: string[]) =>
-          row.filter((item: string) => item.trim().length > 0)
-        )
-        .filter((row: string[]) => row.length > 0);
+      jsonData.value = jsonData.value.map((row: string[]) =>
+        row.filter((item: string) => item.trim().length > 0)
+      );
 
       console.log(jsonData.value);
     }, 2000);
@@ -111,7 +119,9 @@ const parseFile = async (file: File | null) => {
                 class="file-input"
                 required
               />
-              <Button type="submit">Submit</Button>
+              <DialogClose as-child>
+                <Button type="submit">Submit</Button>
+              </DialogClose>
             </label>
           </form>
         </DialogDescription>

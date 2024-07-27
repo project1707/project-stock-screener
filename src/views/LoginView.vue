@@ -1,4 +1,33 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { supabase } from "@/lib/supabaseClient";
+import router from "@/router";
+import { useCounterStore } from "@/stores/counter";
+import { ref } from "vue";
+
+const store = useCounterStore();
+
+const email = ref("");
+const password = ref("");
+
+const signIn = async () => {
+  const { data, error } = await supabase.auth.signInWithPassword({
+    email: email.value,
+    password: password.value,
+  });
+
+  if (error) {
+    console.error("Error signing in:", error.message);
+  } else {
+    console.log("Signed in user:", data.user);
+
+    store.userName = data.user.email;
+    store.isConfirmed = true;
+    store.createNickname();
+
+    router.push({ name: "home" });
+  }
+};
+</script>
 
 <template>
   <router-link :to="{ name: 'home' }">
@@ -8,28 +37,22 @@
     <form class="p-4 bg-light rounded-lg border text-center w-[60vw] m-auto">
       <h1 class="text-3xl font-bold">Sign in</h1>
       <label class="flex flex-col items-center gap-2 mt-4">
-        <Input type="search" placeholder="Email..." class="w-full" required />
+        <Input
+          type="search"
+          placeholder="Email..."
+          class="w-full"
+          v-model="email"
+          required
+        />
         <Input
           type="password"
           placeholder="Password..."
           class="w-full"
+          v-model="password"
           required
         />
-        <Button class="w-full">Sign in</Button>
+        <Button class="w-full" @click.prevent="signIn">Sign in</Button>
       </label>
-      <a
-        href="#"
-        class="text-sm text-primary font-light block mt-5 p-2 rounded-lg hover:bg-primary/45 w-fit m-auto duration-300"
-        >Forgot the password?
-      </a>
-      <h3 class="text-xl font-medium mt-4">or</h3>
-      <div class="mt-4">
-        <button
-          class="w-full border-black border-2 px-5 py-2 text-center duration-300 hover:bg-black/25"
-        >
-          <p>Sign in with Google</p>
-        </button>
-      </div>
     </form>
   </section>
 </template>
