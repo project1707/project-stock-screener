@@ -1,18 +1,8 @@
 <script setup lang="ts">
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
-
 import { useCounterStore } from "@/stores/counter";
 import StockBurgerMenu from "./StockBurgerMenu.vue";
 import { ref } from "vue";
-import { LogOut } from "lucide-vue-next";
 import { supabase } from "@/lib/supabaseClient";
-import router from "@/router";
 
 const store = useCounterStore();
 
@@ -24,8 +14,12 @@ const searchTickets = async () => {
       .from("items-table")
       .select()
       .textSearch("companyId", inputData.value);
-    if (inputData.value.length === 0 || inputData.value === "") {
-      store.fetchData();
+    if (
+      inputData.value.length === 0 ||
+      inputData.value === "" ||
+      inputData.value === " "
+    ) {
+      await store.fetchData();
     }
     if (error) {
       console.log(`Error with serching items: ${error}`);
@@ -33,15 +27,6 @@ const searchTickets = async () => {
       store.dataToShow = data;
     }
   }
-};
-
-const signOut = async () => {
-  await supabase.auth.signOut();
-
-  store.isConfirmed = false;
-  store.userName = "";
-
-  router.go(0);
 };
 </script>
 
@@ -80,27 +65,8 @@ const signOut = async () => {
           <Button>Sign up</Button>
         </router-link>
       </div>
-      <div v-else>
-        <DropdownMenu>
-          <DropdownMenuTrigger class="flex-between gap-3">
-            <h5>
-              Hi, <span class="font-bold">{{ store.userName }}</span
-              >!
-            </h5>
-            <div
-              class="w-[40px] h-[40px] rounded-full p-2 border-[2px] cursor-pointer"
-            >
-              <img src="/src/assets/img/user-logo.svg" />
-            </div>
-          </DropdownMenuTrigger>
-          <DropdownMenuContent class="z-[300]">
-            <DropdownMenuLabel>My Account</DropdownMenuLabel>
-            <DropdownMenuSeparator />
-            <Button class="w-full mt-1 flex-between gap-3" @click="signOut"
-              >Logout <LogOut
-            /></Button>
-          </DropdownMenuContent>
-        </DropdownMenu>
+      <div v-else class="tablets:hidden">
+        <StockProfile />
       </div>
     </div>
     <form

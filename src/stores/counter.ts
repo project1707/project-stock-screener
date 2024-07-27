@@ -1,4 +1,4 @@
-import { ref, computed, onMounted } from "vue";
+import { ref, computed, watch, onMounted } from "vue";
 import { defineStore } from "pinia";
 import { supabase } from "@/lib/supabaseClient";
 
@@ -28,12 +28,30 @@ export const useCounterStore = defineStore("counter", () => {
 
   const currentFilter = ref("EMADiff_FinalScore");
 
+  const itemsIsLoading = ref(true);
+
   const isConfirmed = ref(false);
   const userName = ref<string | undefined>("");
 
-  function createNickname() {
-    userName.value = userName.value?.split("@")[0];
-  }
+  watch(isConfirmed, (newValue) => {
+    localStorage.setItem("isConfirmed", JSON.stringify(newValue));
+  });
+
+  watch(userName, (newValue) => {
+    localStorage.setItem("userName", newValue !== undefined ? newValue : "");
+  });
+
+  onMounted(() => {
+    const savedIsConfirmed = localStorage.getItem("isConfirmed");
+    const savedUserName = localStorage.getItem("userName");
+
+    if (savedIsConfirmed !== null) {
+      isConfirmed.value = JSON.parse(savedIsConfirmed);
+    }
+    if (savedUserName !== null && savedUserName !== "") {
+      userName.value = savedUserName;
+    }
+  });
 
   // pagination logic
   const itemsOnPage = 25;
@@ -55,7 +73,7 @@ export const useCounterStore = defineStore("counter", () => {
   });
 
   const fetchData = async () => {
-    const { data: FechedData, error } = await supabase
+    const { data: FetchedData, error } = await supabase
       .from("items-table")
       .select("*")
       .range(
@@ -66,8 +84,8 @@ export const useCounterStore = defineStore("counter", () => {
     if (error) {
       console.error("Error fetching data:", error);
     } else {
-      data.value = FechedData;
-      dataToShow.value = data.value;
+      data.value = [...FetchedData];
+      dataToShow.value = [...data.value];
 
       if (currentFilter.value === "EMADiff_FinalScore") {
         sortNumbers("EMADiff_FinalScore", "desc");
@@ -82,6 +100,7 @@ export const useCounterStore = defineStore("counter", () => {
       }
 
       console.log(data);
+      itemsIsLoading.value = false;
     }
   };
 
@@ -93,7 +112,7 @@ export const useCounterStore = defineStore("counter", () => {
     currentFilter,
     userName,
     isConfirmed,
-    createNickname,
     fetchData,
+    itemsIsLoading,
   };
 });

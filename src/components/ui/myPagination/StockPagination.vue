@@ -72,7 +72,7 @@ const fetchData = async () => {
 onMounted(() => {
   setTimeout(() => {
     fetchData();
-  }, 2000);
+  }, 1000);
 });
 
 watch(currentPage, () => {

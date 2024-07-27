@@ -2,6 +2,8 @@
 import { supabase } from "@/lib/supabaseClient";
 import { useCounterStore } from "@/stores/counter";
 import { onMounted } from "vue";
+import adminDeleteUser from "./adminDeleteUser.vue";
+import AdminEditUser from "./adminEditUser.vue";
 
 const store = useCounterStore();
 
@@ -10,10 +12,10 @@ async function getUsers() {
 
   if (error) {
     console.error("Error fetching users:", error);
-    return;
+  } else {
+    console.log("Registered users:", data.users);
+    store.users = [...data.users];
   }
-
-  console.log("Registered users:", data);
 }
 
 getUsers();
@@ -31,23 +33,46 @@ onMounted(() => {
       <thead class="sticky top-0 z-[200] bg-light rounded-t-xl">
         <tr>
           <th class="bg-light">
-            <p class="border border-gray-200">Nickname</p>
+            <p class="border border-gray-200">ID</p>
+          </th>
+          <th class="bg-light">
+            <p class="border border-gray-200">Name</p>
           </th>
           <th class="bg-light">
             <p class="border border-gray-200">E-mail</p>
           </th>
           <th class="bg-light">
+            <p class="border border-gray-200">Phone</p>
+          </th>
+          <th class="bg-light">
             <p class="border border-gray-200">Password</p>
+          </th>
+          <th class="bg-light">
+            <p class="border border-gray-200">Functions</p>
           </th>
         </tr>
       </thead>
       <tbody>
         <tr v-for="ticket in store.users" :key="ticket.email">
-          <td class="duration-300 border-b">{{ ticket?.nickname }}</td>
+          <td class="duration-300 border-b overflow-x-auto">
+            {{ ticket?.id }}
+          </td>
+          <td class="duration-300 border-b">
+            {{ ticket?.user_metadata.name }}
+          </td>
           <td class="duration-300 border-b">
             {{ ticket?.email }}
           </td>
-          <td class="duration-300 border-b">{{ ticket?.password }}</td>
+          <td class="duration-300 border-b">
+            {{ ticket?.user_metadata.phone }}
+          </td>
+          <td class="duration-300 border-b">
+            {{ ticket?.user_metadata.password }}
+          </td>
+          <td class="border-b flex-between gap-1 max-w-[100px]">
+            <AdminEditUser :el="ticket" @getUsers="getUsers" />
+            <adminDeleteUser :id="ticket.id" @getUsers="getUsers" />
+          </td>
         </tr>
       </tbody>
     </table>

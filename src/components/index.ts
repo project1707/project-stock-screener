@@ -8,6 +8,7 @@ import { ScrollArea } from "@/components/ui/scroll-area";
 import { ScrollBar } from "@/components/ui/scroll-area";
 import StockPagination from "@/components/ui/myPagination/StockPagination.vue";
 import StockBurgerMenu from "./customer/header/StockBurgerMenu.vue";
+import StockProfile from "./customer/header/StockProfile.vue";
 import adminItemsContainer from "./admin/items/adminItemsContainer.vue";
 
 interface Component {
@@ -26,6 +27,7 @@ const components: Component[] = [
   { name: "StockPagination", component: StockPagination },
   { name: "StockBurgerMenu", component: StockBurgerMenu },
   { name: "adminItemsContainer", component: adminItemsContainer },
+  { name: "StockProfile", component: StockProfile },
 ];
 
 const plugin = {

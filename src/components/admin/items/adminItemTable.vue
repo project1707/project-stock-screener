@@ -128,6 +128,9 @@ console.log(store.dataToShow);
                   <th class="bg-light">
                     <p class="border border-gray-200">Final score</p>
                   </th>
+                  <th class="bg-light">
+                    <p class="border border-gray-200">Functions</p>
+                  </th>
                 </tr>
               </thead>
               <tbody>
@@ -143,6 +146,10 @@ console.log(store.dataToShow);
                   </td>
                   <td class="border-b">
                     {{ ticket?.superTrend_FinalScore }}
+                  </td>
+                  <td class="border-b flex-between gap-3 max-w-[100px]">
+                    <AdminEditDialog :el="ticket" />
+                    <AdminDeleteDialog :id="ticket.ID" />
                   </td>
                 </tr>
               </tbody>
@@ -176,6 +183,9 @@ console.log(store.dataToShow);
                       Linear Regression Value Delta
                     </p>
                   </th>
+                  <th class="bg-light">
+                    <p class="border border-gray-200">Functions</p>
+                  </th>
                 </tr>
               </thead>
               <tbody>
@@ -191,6 +201,10 @@ console.log(store.dataToShow);
                   </td>
                   <td class="border-b">
                     {{ ticket?.squeezeMomentum_LinearRegressionValueDelta }}
+                  </td>
+                  <td class="border-b flex-between gap-3 max-w-[100px]">
+                    <AdminEditDialog :el="ticket" />
+                    <AdminDeleteDialog :id="ticket.ID" />
                   </td>
                 </tr>
               </tbody>

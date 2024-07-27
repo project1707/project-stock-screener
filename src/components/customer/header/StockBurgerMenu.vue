@@ -5,6 +5,9 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+
+import { useCounterStore } from "@/stores/counter";
+const store = useCounterStore();
 </script>
 
 <template>
@@ -17,13 +20,19 @@ import {
           <span class="w-full h-1 bg-black block mt-2 rounded-xl"></span>
         </div>
       </DropdownMenuTrigger>
+
       <DropdownMenuContent class="z-[400]">
-        <router-link :to="{ name: 'signin' }">
-          <DropdownMenuItem class="text-lg">Sign in</DropdownMenuItem>
-        </router-link>
-        <router-link :to="{ name: 'signup' }">
-          <DropdownMenuItem class="text-lg">Sign up</DropdownMenuItem>
-        </router-link>
+        <div v-if="!store.isConfirmed">
+          <router-link :to="{ name: 'signin' }">
+            <DropdownMenuItem class="text-lg">Sign in</DropdownMenuItem>
+          </router-link>
+          <router-link :to="{ name: 'signup' }">
+            <DropdownMenuItem class="text-lg">Sign up</DropdownMenuItem>
+          </router-link>
+        </div>
+        <div v-else class="text-lg hidden tablets:block">
+          <StockProfile />
+        </div>
       </DropdownMenuContent>
     </DropdownMenu>
   </div>

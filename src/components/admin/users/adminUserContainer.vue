@@ -18,7 +18,7 @@ import { SquarePlus } from "lucide-vue-next";
 </script>
 
 <template>
-  <div class="max-w-[1015px] basis-full m-auto gap-4 flex-between">
+  <div class="w-full basis-full m-auto gap-4 flex-between">
     <form class="flex-between basis-full gap-1 m-auto">
       <Input
         id="search"

@@ -34,7 +34,9 @@ const signIn = async () => {
     <p class="text-primary font-light ml-4 mt-4 block">Return to "Home" page</p>
   </router-link>
   <section class="min-h-screen flex flex-col items-center justify-center">
-    <form class="p-4 bg-light rounded-lg border text-center w-[60vw] m-auto">
+    <form
+      class="p-4 bg-light rounded-lg border text-center w-[60vw] tablets:w-[90vw] m-auto"
+    >
       <h1 class="text-3xl font-bold">Sign in</h1>
       <label class="flex flex-col items-center gap-2 mt-4">
         <Input
