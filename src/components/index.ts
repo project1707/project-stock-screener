@@ -10,7 +10,8 @@ import StockPagination from "@/components/ui/myPagination/StockPagination.vue";
 import StockBurgerMenu from "./customer/header/StockBurgerMenu.vue";
 import StockProfile from "./customer/header/StockProfile.vue";
 import adminItemsContainer from "./admin/items/adminItemsContainer.vue";
-import StockLoader from "./ui/loader/StockLoader.vue";
+// @ts-ignore
+import StockLoader from "../components/ui/loader/StockLoader.vue";
 
 interface Component {
   name: string;

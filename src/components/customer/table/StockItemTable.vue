@@ -2,7 +2,6 @@
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { useCounterStore } from "@/stores/counter";
 import StockPagination from "@/components/ui/myPagination/StockPagination.vue";
-import { watch } from "vue";
 
 const store = useCounterStore();
 
