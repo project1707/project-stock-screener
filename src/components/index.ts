@@ -22,10 +22,10 @@ const components: Component[] = [
   { name: "StockFooter", component: StockFooter },
   { name: "StockItemTable", component: StockItemTable },
   { name: "ScrollArea", component: ScrollArea },
-  { name: "ScrollBar ", component: ScrollBar },
-  { name: "StockPagination ", component: StockPagination },
-  { name: "StockBurgerMenu ", component: StockBurgerMenu },
-  { name: "adminItemsContainer ", component: adminItemsContainer },
+  { name: "ScrollBar", component: ScrollBar },
+  { name: "StockPagination", component: StockPagination },
+  { name: "StockBurgerMenu", component: StockBurgerMenu },
+  { name: "adminItemsContainer", component: adminItemsContainer },
 ];
 
 const plugin = {

@@ -2,7 +2,6 @@
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { useCounterStore } from "@/stores/counter";
 import StockPagination from "@/components/ui/myPagination/StockPagination.vue";
-import ScrollBar from "@/components/ui/scroll-area/ScrollBar.vue";
 
 const store = useCounterStore();
 
@@ -17,11 +16,11 @@ console.log(store.dataToShow);
         class="w-full flex justify-between desktop:flex-col gap-3"
       >
         <TabsList
-          class="flex flex-col gap-3 max-w-[350px] desktop:flex-row desktop:max-w-full basis-full h-[140px] p-4"
+          class="flex flex-col gap-3 max-w-[350px] desktop:flex-row desktop:max-w-full basis-full h-[140px] p-4 phonel:h-[70px] phonel:p-2"
         >
           <TabsTrigger
             value="ema-diff"
-            class="w-full"
+            class="w-full phonel:text-[10px] phonel:w-fit"
             @click="
               store.sortNumbers('EMADiff_FinalScore', 'desc');
               store.currentFilter = 'EMADiff_FinalScore';
@@ -31,7 +30,7 @@ console.log(store.dataToShow);
           </TabsTrigger>
           <TabsTrigger
             value="super-trend"
-            class="w-full"
+            class="w-full phonel:text-[10px] phonel:w-fit"
             @click="
               store.sortNumbers('superTrend_FinalScore', 'desc');
               store.currentFilter = 'superTrend_FinalScore';
@@ -41,7 +40,7 @@ console.log(store.dataToShow);
           </TabsTrigger>
           <TabsTrigger
             value="squeeze"
-            class="w-full"
+            class="w-full phonel:text-[10px] phonel:w-fit"
             @click="
               store.sortNumbers(
                 'squeezeMomentum_LinearRegressionValueDelta',
@@ -59,7 +58,7 @@ console.log(store.dataToShow);
             class="h-[437px] basis-full max-w-[964px] desktop:max-w-full overflow-y-auto border rounded-xl"
           >
             <table class="w-full min-w-[818px] bg-light p-4">
-              <thead class="sticky top-0 z-[200] bg-light rounded-t-xl">
+              <thead class="sticky top-0 z-[199] bg-light rounded-t-xl">
                 <tr>
                   <th class="bg-light">
                     <p class="border border-gray-200">ID</p>
@@ -102,7 +101,7 @@ console.log(store.dataToShow);
           <div
             class="rounded-xl h-[437px] basis-full max-w-[964px] desktop:max-w-full border overflow-y-auto"
           >
-            <table class="w-full bg-light">
+            <table class="w-full bg-light min-w-[818px]">
               <thead class="sticky top-0 z-[200] bg-light rounded-t-xl">
                 <tr>
                   <th class="bg-light">
@@ -148,7 +147,7 @@ console.log(store.dataToShow);
           <div
             class="rounded-xl h-[437px] basis-full border desktop:max-w-full max-w-[964px] overflow-y-auto"
           >
-            <table class="w-full bg-light">
+            <table class="w-full bg-light min-w-[818px]">
               <thead class="sticky top-0 z-[200] bg-light rounded-t-xl">
                 <tr>
                   <th class="bg-light">
