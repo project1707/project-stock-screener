@@ -11,15 +11,16 @@ import { useCounterStore } from "@/stores/counter";
 import { LogOut } from "lucide-vue-next";
 import { supabase } from "@/lib/supabaseClient";
 const store = useCounterStore();
-import router from "@/router";
 
 const signOut = async () => {
   await supabase.auth.signOut();
 
   store.isConfirmed = false;
   store.userName = "";
+  store.user = {};
+  store.role = "";
 
-  router.go(0);
+  location.reload();
 };
 </script>
 

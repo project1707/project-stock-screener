@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import AdminItemDialog from "./adminItemDialog.vue";
-import adminItemTable from "./adminItemTable.vue";
 import { useCounterStore } from "../../../stores/counter";
 import { ref } from "vue";
 import { supabase } from "@/lib/supabaseClient";
+import AdminItemTable from "./adminItemTable.vue";
 const store = useCounterStore();
 
 const inputData = ref("");
@@ -41,7 +41,12 @@ const searchTickets = async () => {
     </form>
     <AdminItemDialog />
   </div>
-  <adminItemTable />
+  <div v-if="store.itemsIsLoading">
+    <StockLoader />
+  </div>
+  <div v-else>
+    <AdminItemTable />
+  </div>
 </template>
 
 <style scoped>

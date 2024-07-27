@@ -20,11 +20,14 @@ const signIn = async () => {
   } else {
     console.log("Signed in user:", data.user);
 
-    store.userName = data.user.email;
+    store.userName = data.user.user_metadata.name;
     store.isConfirmed = true;
-    store.createNickname();
+    store.user = data.user;
+    store.role = data.user?.user_metadata.role;
 
     router.push({ name: "home" });
+
+    store.fetchData();
   }
 };
 </script>

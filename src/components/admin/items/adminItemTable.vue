@@ -94,7 +94,7 @@ console.log(store.dataToShow);
                   <td class="border-b">
                     {{ ticket?.EMADiff_FinalScore }}
                   </td>
-                  <td class="border-b flex-between gap-3 max-w-[100px]">
+                  <td class="border-b flex-between gap-1 max-w-[100px]">
                     <AdminEditDialog :el="ticket" />
                     <AdminDeleteDialog :id="ticket.ID" />
                   </td>
@@ -147,7 +147,7 @@ console.log(store.dataToShow);
                   <td class="border-b">
                     {{ ticket?.superTrend_FinalScore }}
                   </td>
-                  <td class="border-b flex-between gap-3 max-w-[100px]">
+                  <td class="border-b flex-between gap-1 max-w-[100px]">
                     <AdminEditDialog :el="ticket" />
                     <AdminDeleteDialog :id="ticket.ID" />
                   </td>
@@ -202,7 +202,7 @@ console.log(store.dataToShow);
                   <td class="border-b">
                     {{ ticket?.squeezeMomentum_LinearRegressionValueDelta }}
                   </td>
-                  <td class="border-b flex-between gap-3 max-w-[100px]">
+                  <td class="border-b flex-between gap-1 max-w-[100px]">
                     <AdminEditDialog :el="ticket" />
                     <AdminDeleteDialog :id="ticket.ID" />
                   </td>

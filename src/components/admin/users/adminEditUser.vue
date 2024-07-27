@@ -9,16 +9,21 @@ import {
   DialogTrigger,
   DialogClose,
 } from "../../ui/dialog";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import { supabase } from "@/lib/supabaseClient";
 import { ref, watch } from "vue";
-import { useCounterStore } from "@/stores/counter";
-
-const store = useCounterStore();
 
 type UserMetadata = {
   name: string;
   phone: string;
   password: string;
+  role: string;
 };
 
 type Item = {
@@ -28,36 +33,31 @@ type Item = {
   user_metadata: UserMetadata;
 };
 
+const emit = defineEmits(["getUsers"]);
+
 const props = defineProps<{
   el: Item;
 }>();
 
-const emit = defineEmits(["getUsers"]);
-
-const el = ref({ ...props.el });
+const el = props.el;
 const initialEl = ref({ ...props.el });
 const isModified = ref(false);
 
-watch(
-  el,
-  (newVal, oldVal) => {
-    isModified.value =
-      JSON.stringify(newVal) !== JSON.stringify(initialEl.value);
-  },
-  { deep: true }
-);
+watch(el, (newVal) => {
+  isModified.value = JSON.stringify(newVal) !== JSON.stringify(initialEl.value);
+});
 
 const editItem = async () => {
-  if (el.value.id) {
+  if (isModified.value && el.id) {
     const { data: user, error } = await supabase.auth.admin.updateUserById(
-      el.value.id,
+      el.id,
       {
-        email: el.value.email,
-        password: el.value.user_metadata.password,
+        email: el.email,
+        password: el.user_metadata.password,
         user_metadata: {
-          name: el.value.user_metadata.name,
-          phone: el.value.user_metadata.phone,
-          password: el.value.user_metadata.password,
+          name: el.user_metadata.name,
+          phone: el.user_metadata.phone,
+          password: el.user_metadata.password,
         },
       }
     );
@@ -89,6 +89,15 @@ const editItem = async () => {
             placeholder="Name"
             v-model="el.user_metadata.name"
           />
+          <Select>
+            <SelectTrigger>
+              <SelectValue placeholder="Select a role" />
+            </SelectTrigger>
+            <SelectContent class="z-[400]">
+              <SelectItem value="customer"> customer </SelectItem>
+              <SelectItem value="admin"> admin </SelectItem>
+            </SelectContent>
+          </Select>
           <Input type="email" placeholder="Email" v-model="el.email" />
           <Input
             type="tel"

@@ -10,6 +10,7 @@ import StockPagination from "@/components/ui/myPagination/StockPagination.vue";
 import StockBurgerMenu from "./customer/header/StockBurgerMenu.vue";
 import StockProfile from "./customer/header/StockProfile.vue";
 import adminItemsContainer from "./admin/items/adminItemsContainer.vue";
+import StockLoader from "./ui/loader/StockLoader.vue";
 
 interface Component {
   name: string;
@@ -28,6 +29,7 @@ const components: Component[] = [
   { name: "StockBurgerMenu", component: StockBurgerMenu },
   { name: "adminItemsContainer", component: adminItemsContainer },
   { name: "StockProfile", component: StockProfile },
+  { name: "StockLoader", component: StockLoader },
 ];
 
 const plugin = {

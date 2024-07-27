@@ -3,6 +3,7 @@ import { useCounterStore } from "@/stores/counter";
 import StockBurgerMenu from "./StockBurgerMenu.vue";
 import { ref } from "vue";
 import { supabase } from "@/lib/supabaseClient";
+import StockAdminLink from "./StockAdminLink.vue";
 
 const store = useCounterStore();
 
@@ -67,6 +68,9 @@ const searchTickets = async () => {
       </div>
       <div v-else class="tablets:hidden">
         <StockProfile />
+      </div>
+      <div class="tablets:hidden">
+        <StockAdminLink />
       </div>
     </div>
     <form

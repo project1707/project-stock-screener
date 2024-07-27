@@ -5,6 +5,7 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import StockAdminLink from "./StockAdminLink.vue";
 
 import { useCounterStore } from "@/stores/counter";
 const store = useCounterStore();
@@ -32,6 +33,9 @@ const store = useCounterStore();
         </div>
         <div v-else class="text-lg hidden tablets:block">
           <StockProfile />
+        </div>
+        <div class="hidden tablets:flex items-center justify-center">
+          <StockAdminLink />
         </div>
       </DropdownMenuContent>
     </DropdownMenu>

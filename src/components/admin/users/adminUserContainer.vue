@@ -1,7 +1,10 @@
 <script setup lang="ts">
 import { useCounterStore } from "@/stores/counter";
-import { ref } from "vue";
+import { ref, onMounted } from "vue";
 import adminUserTable from "./adminUserTable.vue";
+import { SquarePlus } from "lucide-vue-next";
+import { supabase } from "@/lib/supabaseClient";
+import AdminCreateUser from "./adminCreateUser.vue";
 const store = useCounterStore();
 
 const inputData = ref("");
@@ -14,7 +17,26 @@ const searchUsers = () => {
   console.log(store.users);
 };
 
-import { SquarePlus } from "lucide-vue-next";
+const getUsers = async () => {
+  try {
+    const { data, error } = await supabase.auth.admin.listUsers();
+
+    if (error) {
+      console.error("Error fetching users:", error);
+    } else {
+      console.log("Registered users:", data.users);
+      store.users = [...data.users];
+    }
+  } catch (error) {
+    console.log(error);
+  } finally {
+    store.usersIsLoading = false;
+  }
+};
+
+onMounted(() => {
+  getUsers();
+});
 </script>
 
 <template>
@@ -30,12 +52,12 @@ import { SquarePlus } from "lucide-vue-next";
       />
       <Button type="submit" @click.prevent="searchUsers">Search</Button>
     </form>
-    <button
-      class="bg-green-500 h text-light px-4 py-2 rounded-lg flex-between gap-3 border hover:text-green-500 border-green-500 hover:bg-light duration-300"
-    >
-      <p class="text-[14px] w-[85px]">Add new item</p>
-      <SquarePlus color="#ffffff" class="w-7 h-7 icon" />
-    </button>
+    <AdminCreateUser @getUsers="getUsers" />
   </div>
-  <adminUserTable />
+  <div v-if="store.usersIsLoading">
+    <StockLoader />
+  </div>
+  <div v-else>
+    <adminUserTable @getUsers="getUsers" />
+  </div>
 </template>

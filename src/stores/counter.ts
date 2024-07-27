@@ -29,9 +29,32 @@ export const useCounterStore = defineStore("counter", () => {
   const currentFilter = ref("EMADiff_FinalScore");
 
   const itemsIsLoading = ref(true);
-
+  const usersIsLoading = ref(true);
   const isConfirmed = ref(false);
   const userName = ref<string | undefined>("");
+  const user = ref<any>({});
+  const role = ref("");
+
+  if (localStorage.getItem("user")) {
+    user.value = JSON.parse(localStorage.getItem("user")!);
+  } else localStorage.setItem("user", JSON.stringify(user.value));
+
+  if (localStorage.getItem("isConfirmed")) {
+    isConfirmed.value = JSON.parse(localStorage.getItem("isConfirmed")!);
+  } else localStorage.setItem("isConfirmed", JSON.stringify(isConfirmed.value));
+
+  if (localStorage.getItem("userName")) {
+    userName.value = localStorage.getItem("userName") as string;
+  } else
+    localStorage.setItem(
+      "userName",
+      userName.value !== undefined ? userName.value : ""
+    );
+
+  if (localStorage.getItem("role")) {
+    role.value = localStorage.getItem("role") as string;
+  } else
+    localStorage.setItem("role", role.value !== undefined ? role.value : "");
 
   watch(isConfirmed, (newValue) => {
     localStorage.setItem("isConfirmed", JSON.stringify(newValue));
@@ -41,16 +64,12 @@ export const useCounterStore = defineStore("counter", () => {
     localStorage.setItem("userName", newValue !== undefined ? newValue : "");
   });
 
-  onMounted(() => {
-    const savedIsConfirmed = localStorage.getItem("isConfirmed");
-    const savedUserName = localStorage.getItem("userName");
+  watch(user, (newValue) => {
+    localStorage.setItem("user", JSON.stringify(newValue));
+  });
 
-    if (savedIsConfirmed !== null) {
-      isConfirmed.value = JSON.parse(savedIsConfirmed);
-    }
-    if (savedUserName !== null && savedUserName !== "") {
-      userName.value = savedUserName;
-    }
+  watch(role, (newValue) => {
+    localStorage.setItem("role", newValue);
   });
 
   // pagination logic
@@ -72,37 +91,58 @@ export const useCounterStore = defineStore("counter", () => {
     fetchLength();
   });
 
+  const amountOnPage = computed(() => {
+    return Math.ceil(itemsLength.value / itemsOnPage);
+  });
+
   const fetchData = async () => {
-    const { data: FetchedData, error } = await supabase
-      .from("items-table")
-      .select("*")
-      .range(
-        (currentPage.value - 1) * itemsOnPage,
-        currentPage.value * itemsOnPage - 1
-      );
+    try {
+      const { data: FetchedData, error } = await supabase
+        .from("items-table")
+        .select("*")
+        .range(
+          (currentPage.value - 1) * itemsOnPage,
+          currentPage.value * itemsOnPage - 1
+        );
 
-    if (error) {
-      console.error("Error fetching data:", error);
-    } else {
-      data.value = [...FetchedData];
-      dataToShow.value = [...data.value];
+      if (error) {
+        console.error("Error fetching data:", error);
+      } else {
+        data.value = [...FetchedData];
+        dataToShow.value = [...data.value];
 
-      if (currentFilter.value === "EMADiff_FinalScore") {
-        sortNumbers("EMADiff_FinalScore", "desc");
-      }
-      if (currentFilter.value === "superTrend_FinalScore") {
-        sortNumbers("superTrend_FinalScore", "desc");
-      }
-      if (
-        currentFilter.value === "squeezeMomentum_LinearRegressionValueDelta"
-      ) {
-        sortNumbers("squeezeMomentum_LinearRegressionValueDelta", "desc");
-      }
+        if (currentFilter.value === "EMADiff_FinalScore") {
+          sortNumbers("EMADiff_FinalScore", "desc");
+        }
+        if (currentFilter.value === "superTrend_FinalScore") {
+          sortNumbers("superTrend_FinalScore", "desc");
+        }
+        if (
+          currentFilter.value === "squeezeMomentum_LinearRegressionValueDelta"
+        ) {
+          sortNumbers("squeezeMomentum_LinearRegressionValueDelta", "desc");
+        }
 
-      console.log(data);
+        console.log(data);
+        itemsIsLoading.value = false;
+      }
+    } catch (error) {
+      console.log(error);
+    } finally {
       itemsIsLoading.value = false;
+      console.log("aaa");
     }
   };
+
+  onMounted(() => {
+    setTimeout(() => {
+      fetchData();
+    }, 1000);
+  });
+
+  watch(currentPage, () => {
+    fetchData();
+  });
 
   return {
     data,
@@ -114,5 +154,10 @@ export const useCounterStore = defineStore("counter", () => {
     isConfirmed,
     fetchData,
     itemsIsLoading,
+    user,
+    currentPage,
+    amountOnPage,
+    role,
+    usersIsLoading,
   };
 });

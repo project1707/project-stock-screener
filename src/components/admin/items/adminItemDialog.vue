@@ -7,7 +7,6 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
-import { SquarePlus } from "lucide-vue-next";
 import { ref } from "vue";
 import Papa from "papaparse";
 import type { ParseResult } from "papaparse";
@@ -100,10 +99,9 @@ const parseFile = async (file: File | null) => {
   <Dialog>
     <DialogTrigger>
       <button
-        class="bg-green-500 h text-light px-4 py-2 rounded-lg flex-between gap-3 border hover:text-green-500 border-green-500 hover:bg-light duration-300"
+        class="bg-green-500 h text-light px-4 py-2 rounded-lg border hover:text-green-500 border-green-500 hover:bg-light duration-300"
       >
-        <p class="text-[14px] w-[85px]">Add new item</p>
-        <SquarePlus color="#ffffff" class="w-7 h-7 icon" />
+        <p class="text-[14px] w-[90px]">Add new item</p>
       </button>
     </DialogTrigger>
     <DialogContent class="z-[300]">

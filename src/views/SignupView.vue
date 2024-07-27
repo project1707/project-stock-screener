@@ -19,6 +19,7 @@ const signUp = async () => {
         name: name.value,
         phone: phone.value,
         password: password.value,
+        role: "customer",
       },
     },
   });
@@ -30,6 +31,9 @@ const signUp = async () => {
 
     store.isConfirmed = true;
     store.userName = data.user?.user_metadata.name;
+    store.user = data.user;
+    store.role = data.user?.app_metadata.role;
+
     console.log(data.user?.user_metadata.name);
   }
 };
@@ -37,7 +41,12 @@ const signUp = async () => {
 
 <template>
   <router-link :to="{ name: 'home' }">
-    <p class="text-primary font-light ml-4 mt-4 block">Return to "Home" page</p>
+    <p
+      class="text-primary font-light ml-4 mt-4 block"
+      @click="store.fetchData()"
+    >
+      Return to "Home" page
+    </p>
   </router-link>
   <section class="min-h-screen flex flex-col items-center justify-center">
     <form

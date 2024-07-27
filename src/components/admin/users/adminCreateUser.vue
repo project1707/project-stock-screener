@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { FilePenLine } from "lucide-vue-next";
 import {
   Dialog,
   DialogContent,
@@ -9,64 +8,45 @@ import {
   DialogTrigger,
   DialogClose,
 } from "../../ui/dialog";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import { supabase } from "@/lib/supabaseClient";
-import { ref, watch } from "vue";
+import { ref } from "vue";
 import { useCounterStore } from "@/stores/counter";
-
-const store = useCounterStore();
-
-type UserMetadata = {
-  name: string;
-  phone: string;
-  password: string;
-};
-
-type Item = {
-  id: string | undefined;
-  email: string;
-  password: string;
-  user_metadata: UserMetadata;
-};
-
-const props = defineProps<{
-  el: Item;
-}>();
 
 const emit = defineEmits(["getUsers"]);
 
-const el = ref({ ...props.el });
-const initialEl = ref({ ...props.el });
-const isModified = ref(false);
+const role = ref("");
+const name = ref("");
+const email = ref("");
+const phone = ref("");
+const password = ref("");
 
-watch(
-  el,
-  (newVal, oldVal) => {
-    isModified.value =
-      JSON.stringify(newVal) !== JSON.stringify(initialEl.value);
-  },
-  { deep: true }
-);
+const signUp = async () => {
+  const { data, error } = await supabase.auth.signUp({
+    email: email.value,
+    password: password.value,
+    options: {
+      data: {
+        name: name.value,
+        phone: phone.value,
+        password: password.value,
+        role: role.value,
+      },
+    },
+  });
 
-const editItem = async () => {
-  if (el.value.id) {
-    const { data: user, error } = await supabase.auth.admin.updateUserById(
-      el.value.id,
-      {
-        email: el.value.email,
-        password: el.value.user_metadata.password,
-        user_metadata: {
-          name: el.value.user_metadata.name,
-          phone: el.value.user_metadata.phone,
-          password: el.value.user_metadata.password,
-        },
-      }
-    );
-    if (error) {
-      console.log(`Error: problems with editing items: ${error}`);
-    } else {
-      console.log(user);
-      emit("getUsers");
-    }
+  if (error) {
+    console.log(`Error with sign up: ${error}`);
+  } else {
+    console.log(data.user);
+
+    emit("getUsers");
   }
 };
 </script>
@@ -74,46 +54,49 @@ const editItem = async () => {
 <template>
   <Dialog>
     <DialogTrigger>
-      <button class="p-3 bg-blue-500 rounded-lg btn-edit">
-        <FilePenLine color="#ffffff" class="" />
+      <button
+        class="bg-green-500 h text-light px-4 py-2 rounded-lg border hover:text-green-500 border-green-500 hover:bg-light duration-300"
+      >
+        <p class="text-[14px] w-[90px]">Add new item</p>
       </button>
     </DialogTrigger>
     <DialogContent class="z-[300]">
       <DialogHeader>
-        <DialogTitle class="text-2xl">Edit item:</DialogTitle>
+        <DialogTitle class="text-2xl">Create user:</DialogTitle>
       </DialogHeader>
       <DialogDescription>
         <form>
-          <Input
-            type="text"
-            placeholder="Name"
-            v-model="el.user_metadata.name"
-          />
-          <Input type="email" placeholder="Email" v-model="el.email" />
-          <Input
-            type="tel"
-            placeholder="Phone"
-            v-model="el.user_metadata.phone"
-          />
+          <Input type="text" placeholder="Name" v-model="name" required />
+          <Select v-model="role">
+            <SelectTrigger>
+              <SelectValue placeholder="Select a role" required />
+            </SelectTrigger>
+            <SelectContent class="z-[400]">
+              <SelectItem value="customer"> customer </SelectItem>
+              <SelectItem value="admin"> admin </SelectItem>
+            </SelectContent>
+          </Select>
+          <Input type="email" placeholder="Email" v-model="email" required />
+          <Input type="tel" placeholder="Phone" v-model="phone" required />
           <Input
             type="text"
             placeholder="Password"
-            v-model="el.user_metadata.password"
+            v-model="password"
+            required
           />
+          <div class="mt-4 w-full flex-between gap-3">
+            <DialogClose as-child>
+              <Button variant="outline" class="w-full">Close</Button>
+            </DialogClose>
+            <DialogClose as-child>
+              <Button
+                class="w-full bg-green-500 border-green"
+                @click.submit.prevent="signUp"
+                >Add new user</Button
+              >
+            </DialogClose>
+          </div>
         </form>
-        <div class="mt-4 w-full flex-between gap-3">
-          <DialogClose as-child>
-            <Button variant="outline" class="w-full">Close</Button>
-          </DialogClose>
-          <DialogClose as-child>
-            <Button
-              class="w-full bg-green border-green"
-              @click.prevent="editItem"
-              :disabled="!isModified"
-              >Edit user</Button
-            >
-          </DialogClose>
-        </div>
       </DialogDescription>
     </DialogContent>
   </Dialog>

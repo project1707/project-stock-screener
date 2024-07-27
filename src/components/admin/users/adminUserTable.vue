@@ -1,28 +1,15 @@
 <script setup lang="ts">
-import { supabase } from "@/lib/supabaseClient";
 import { useCounterStore } from "@/stores/counter";
-import { onMounted } from "vue";
 import adminDeleteUser from "./adminDeleteUser.vue";
 import AdminEditUser from "./adminEditUser.vue";
 
 const store = useCounterStore();
 
-async function getUsers() {
-  const { data, error } = await supabase.auth.admin.listUsers();
+const emit = defineEmits(["getUsers"]);
 
-  if (error) {
-    console.error("Error fetching users:", error);
-  } else {
-    console.log("Registered users:", data.users);
-    store.users = [...data.users];
-  }
-}
-
-getUsers();
-
-onMounted(() => {
-  getUsers();
-});
+const getUsers = () => {
+  emit("getUsers");
+};
 </script>
 
 <template>
@@ -33,7 +20,7 @@ onMounted(() => {
       <thead class="sticky top-0 z-[200] bg-light rounded-t-xl">
         <tr>
           <th class="bg-light">
-            <p class="border border-gray-200">ID</p>
+            <p class="border border-gray-200">Role</p>
           </th>
           <th class="bg-light">
             <p class="border border-gray-200">Name</p>
@@ -55,7 +42,7 @@ onMounted(() => {
       <tbody>
         <tr v-for="ticket in store.users" :key="ticket.email">
           <td class="duration-300 border-b overflow-x-auto">
-            {{ ticket?.id }}
+            {{ ticket?.user_metadata.role }}
           </td>
           <td class="duration-300 border-b">
             {{ ticket?.user_metadata.name }}
