@@ -4,6 +4,7 @@ import StockBurgerMenu from "./StockBurgerMenu.vue";
 import { ref } from "vue";
 import { supabase } from "@/lib/supabaseClient";
 import StockAdminLink from "./StockAdminLink.vue";
+import { watch } from "vue";
 
 const store = useCounterStore();
 
@@ -29,6 +30,12 @@ const searchTickets = async () => {
     }
   }
 };
+
+watch(inputData, () => {
+  if (inputData.value === "") {
+    store.fetchData();
+  }
+});
 </script>
 
 <template>
