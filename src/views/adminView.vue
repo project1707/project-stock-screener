@@ -15,6 +15,8 @@ onMounted(() => {
   if (store.role !== "admin" && store.role !== "customer") {
     router.push({ name: "signin" });
   }
+
+  store.fetchData();
 });
 </script>
 
