@@ -2,7 +2,6 @@
 import { useCounterStore } from "@/stores/counter";
 import { ref, onMounted } from "vue";
 import adminUserTable from "./adminUserTable.vue";
-import { SquarePlus } from "lucide-vue-next";
 import { supabase } from "@/lib/supabaseClient";
 import AdminCreateUser from "./adminCreateUser.vue";
 const store = useCounterStore();
@@ -10,9 +9,17 @@ const store = useCounterStore();
 const inputData = ref("");
 
 const searchUsers = () => {
-  store.users = store.users.filter((el: { nickname: string }) => {
-    return el.nickname.toUpperCase().includes(inputData.value.toUpperCase());
-  });
+  store.usersToShow = store.usersToShow.filter(
+    (el: { user_metadata: { name: string } }) => {
+      return el.user_metadata.name
+        .toUpperCase()
+        .includes(inputData.value.toUpperCase());
+    }
+  );
+
+  if (inputData.value.length === 0 || inputData.value === " ") {
+    store.usersToShow = [...store.users];
+  }
 
   console.log(store.users);
 };
@@ -26,6 +33,7 @@ const getUsers = async () => {
     } else {
       console.log("Registered users:", data.users);
       store.users = [...data.users];
+      store.usersToShow = [...store.users];
     }
   } catch (error) {
     console.log(error);

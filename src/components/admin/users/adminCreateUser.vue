@@ -17,7 +17,6 @@ import {
 } from "@/components/ui/select";
 import { supabase } from "@/lib/supabaseClient";
 import { ref } from "vue";
-import { useCounterStore } from "@/stores/counter";
 
 const emit = defineEmits(["getUsers"]);
 
@@ -57,7 +56,7 @@ const signUp = async () => {
       <button
         class="bg-green-500 h text-light px-4 py-2 rounded-lg border hover:text-green-500 border-green-500 hover:bg-light duration-300"
       >
-        <p class="text-[14px] w-[90px]">Add new item</p>
+        <p class="text-[14px] w-[90px]">Add new user</p>
       </button>
     </DialogTrigger>
     <DialogContent class="z-[300]">

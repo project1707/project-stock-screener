@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import router from "@/router";
 import { useCounterStore } from "@/stores/counter";
 import { onMounted, ref } from "vue";
 import { watch } from "vue";
@@ -9,6 +10,10 @@ const isLoading = ref(true);
 
 onMounted(() => {
   store.fetchData();
+
+  if (store.role !== "customer" && store.role !== "admin") {
+    router.push({ name: "signin" });
+  }
 });
 
 watch(store, () => {

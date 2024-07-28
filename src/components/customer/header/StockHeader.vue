@@ -1,41 +1,9 @@
 <script setup lang="ts">
 import { useCounterStore } from "@/stores/counter";
 import StockBurgerMenu from "./StockBurgerMenu.vue";
-import { ref } from "vue";
-import { supabase } from "@/lib/supabaseClient";
 import StockAdminLink from "./StockAdminLink.vue";
-import { watch } from "vue";
 
 const store = useCounterStore();
-
-const inputData = ref("");
-
-const searchTickets = async () => {
-  if (inputData.value.length !== 0) {
-    const { data, error } = await supabase
-      .from("items-table")
-      .select()
-      .textSearch("companyId", inputData.value);
-    if (
-      inputData.value.length === 0 ||
-      inputData.value === "" ||
-      inputData.value === " "
-    ) {
-      await store.fetchData();
-    }
-    if (error) {
-      console.log(`Error with serching items: ${error}`);
-    } else {
-      store.dataToShow = data;
-    }
-  }
-};
-
-watch(inputData, () => {
-  if (inputData.value === "") {
-    store.fetchData();
-  }
-});
 </script>
 
 <template>
@@ -49,19 +17,7 @@ watch(inputData, () => {
           <img src="/src/assets/img/logo.svg" class="w-full" />
         </div>
       </div>
-      <form
-        class="flex max-w-[700px] basis-full items-center tablet:hidden gap-1.5"
-      >
-        <Input
-          id="search"
-          type="search"
-          placeholder="Search..."
-          class="w-full"
-          v-model="inputData"
-          @input.prevent="searchTickets"
-        />
-        <Button type="submit" @click.prevent="searchTickets">Search</Button>
-      </form>
+
       <StockBurgerMenu />
       <div v-if="!store.isConfirmed" class="flex-between tablets:hidden gap-3">
         <router-link :to="{ name: 'signin' }">
@@ -73,26 +29,12 @@ watch(inputData, () => {
           <Button>Sign up</Button>
         </router-link>
       </div>
-      <div v-else class="tablets:hidden">
-        <StockProfile />
-      </div>
-      <div class="tablets:hidden">
+      <div v-if="store.isConfirmed" class="flex-between gap-3 tablets:hidden">
+        <div v-if="store.isConfirmed">
+          <StockProfile />
+        </div>
         <StockAdminLink />
       </div>
     </div>
-    <form
-      class="hidden tablet:flex container basis-full items-center mt-5 gap-1.5"
-    >
-      <Input
-        id="search"
-        type="search"
-        placeholder="Search..."
-        class="w-full"
-        v-model="inputData"
-        @input.prevent="searchTickets"
-      />
-      {{ inputData }}
-      <Button type="submit" @click.prevent="searchTickets">Search</Button>
-    </form>
   </header>
 </template>

@@ -40,7 +40,7 @@ const getUsers = () => {
         </tr>
       </thead>
       <tbody>
-        <tr v-for="ticket in store.users" :key="ticket.email">
+        <tr v-for="ticket in store.usersToShow" :key="ticket.email">
           <td class="duration-300 border-b overflow-x-auto">
             {{ ticket?.user_metadata.role }}
           </td>

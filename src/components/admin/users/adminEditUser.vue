@@ -40,15 +40,9 @@ const props = defineProps<{
 }>();
 
 const el = props.el;
-const initialEl = ref({ ...props.el });
-const isModified = ref(false);
-
-watch(el, (newVal) => {
-  isModified.value = JSON.stringify(newVal) !== JSON.stringify(initialEl.value);
-});
 
 const editItem = async () => {
-  if (isModified.value && el.id) {
+  if (el.id) {
     const { data: user, error } = await supabase.auth.admin.updateUserById(
       el.id,
       {
@@ -115,12 +109,7 @@ const editItem = async () => {
             <Button variant="outline" class="w-full">Close</Button>
           </DialogClose>
           <DialogClose as-child>
-            <Button
-              class="w-full"
-              @click.prevent="editItem"
-              :disabled="!isModified"
-              >Edit user</Button
-            >
+            <Button class="w-full" @click.prevent="editItem">Edit user</Button>
           </DialogClose>
         </div>
       </DialogDescription>

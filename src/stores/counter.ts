@@ -4,10 +4,10 @@ import { supabase } from "@/lib/supabaseClient";
 
 export const useCounterStore = defineStore("counter", () => {
   const data = ref<any[]>([]);
-
   const users = ref<any[]>([]);
 
   const dataToShow = ref([...data.value]);
+  const usersToShow = ref<any[]>([]);
 
   const sortNumbers = (key: string, order: "asc" | "desc") => {
     dataToShow.value = [...data.value];
@@ -73,14 +73,18 @@ export const useCounterStore = defineStore("counter", () => {
   });
 
   // pagination logic
-  const itemsOnPage = 25;
+  const itemsOnPage = 50;
   const currentPage = ref(1);
   const itemsLength = ref();
 
   const fetchLength = async () => {
-    const { data, error } = await supabase.from("items-table").select("*");
+    let { data: itemsTable, error } = await supabase
+      .from("items-table")
+      .select("*");
 
-    itemsLength.value = data?.length;
+    itemsLength.value = itemsTable?.length;
+
+    console.log(itemsLength.value);
 
     if (error) {
       console.log(`error with fetching items length: ${error}`);
@@ -96,6 +100,8 @@ export const useCounterStore = defineStore("counter", () => {
   });
 
   const fetchData = async () => {
+    console.log(amountOnPage.value);
+
     try {
       const { data: FetchedData, error } = await supabase
         .from("items-table")
@@ -134,12 +140,6 @@ export const useCounterStore = defineStore("counter", () => {
     }
   };
 
-  onMounted(() => {
-    setTimeout(() => {
-      fetchData();
-    }, 1000);
-  });
-
   watch(currentPage, () => {
     fetchData();
   });
@@ -159,5 +159,6 @@ export const useCounterStore = defineStore("counter", () => {
     amountOnPage,
     role,
     usersIsLoading,
+    usersToShow,
   };
 });
