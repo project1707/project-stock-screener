@@ -90,7 +90,14 @@ const signUp = async () => {
             <DialogClose as-child>
               <Button
                 class="w-full bg-green-500 border-green"
-                @click.submit.prevent="signUp"
+                @click.submit.prevent="
+                  signUp();
+                  role = '';
+                  name = '';
+                  email = '';
+                  phone = '';
+                  password = '';
+                "
                 >Add new user</Button
               >
             </DialogClose>

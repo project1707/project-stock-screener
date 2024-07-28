@@ -10,7 +10,7 @@ console.log(store.dataToShow);
 
 <template>
   <section class="mt-4">
-    <div class="w-full container">
+    <div class="w-full container relative">
       <Tabs
         default-value="ema-diff"
         class="w-full flex justify-between desktop:flex-col gap-3"
@@ -90,7 +90,7 @@ console.log(store.dataToShow);
                   <td class="duration-300 border-b">{{ ticket?.LTP }}</td>
                   <td class="duration-300 border-b">{{ ticket?.EMADiff }}</td>
                   <td class="duration-300 border-b">
-                    {{ ticket?.EMADiff_FinalScore }}
+                    {{ ticket?.EMADiff_FinalScore }}%
                   </td>
                 </tr>
               </tbody>
@@ -136,7 +136,7 @@ console.log(store.dataToShow);
                     {{ ticket?.superTrend }}
                   </td>
                   <td class="duration-300 border-b">
-                    {{ ticket?.superTrend_FinalScore }}
+                    {{ ticket?.superTrend_FinalScore }}%
                   </td>
                 </tr>
               </tbody>
@@ -192,7 +192,8 @@ console.log(store.dataToShow);
           </div>
         </TabsContent>
       </Tabs>
-      <StockPagination />
+      <!-- <StockFeedback /> -->
+      <StockPagination class="mt-10" />
     </div>
   </section>
 </template>

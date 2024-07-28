@@ -91,9 +91,7 @@ console.log(store.dataToShow);
                   <td class="border-b">{{ ticket?.lotSize }}</td>
                   <td class="border-b">{{ ticket?.LTP }}</td>
                   <td class="border-b">{{ ticket?.EMADiff }}</td>
-                  <td class="border-b">
-                    {{ ticket?.EMADiff_FinalScore }}
-                  </td>
+                  <td class="border-b">{{ ticket?.EMADiff_FinalScore }}%</td>
                   <td class="border-b flex-between gap-1 max-w-[100px]">
                     <AdminEditDialog :el="ticket" />
                     <AdminDeleteDialog :id="ticket.ID" />
@@ -144,9 +142,7 @@ console.log(store.dataToShow);
                   <td class="border-b">
                     {{ ticket?.superTrend }}
                   </td>
-                  <td class="border-b">
-                    {{ ticket?.superTrend_FinalScore }}
-                  </td>
+                  <td class="border-b">{{ ticket?.superTrend_FinalScore }}%</td>
                   <td class="border-b flex-between gap-1 max-w-[100px]">
                     <AdminEditDialog :el="ticket" />
                     <AdminDeleteDialog :id="ticket.ID" />

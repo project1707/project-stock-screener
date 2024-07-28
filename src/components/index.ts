@@ -7,6 +7,7 @@ import StockItemTable from "./customer/table/StockItemTable.vue";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { ScrollBar } from "@/components/ui/scroll-area";
 import StockPagination from "@/components/ui/myPagination/StockPagination.vue";
+import StockFeedback from "@/components/customer/feedback/StockFeedback.vue";
 import StockBurgerMenu from "./customer/header/StockBurgerMenu.vue";
 import StockProfile from "./customer/header/StockProfile.vue";
 import adminItemsContainer from "./admin/items/adminItemsContainer.vue";
@@ -31,6 +32,7 @@ const components: Component[] = [
   { name: "adminItemsContainer", component: adminItemsContainer },
   { name: "StockProfile", component: StockProfile },
   { name: "StockLoader", component: StockLoader },
+  { name: "StockFeedback", component: StockFeedback },
 ];
 
 const plugin = {

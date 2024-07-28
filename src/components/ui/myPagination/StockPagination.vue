@@ -22,7 +22,7 @@ const store = useCounterStore();
       :sibling-count="1"
       show-edges
       :default-page="1"
-      class="w-full flex items-center justify-center mt-10"
+      class="max-w-[476px] m-auto flex items-center justify-center"
     >
       <PaginationList v-slot="{ items }" class="flex items-center gap-1">
         <PaginationFirst @click="store.currentPage = 1" />

@@ -57,6 +57,12 @@ const signIn = async () => {
           required
         />
         <Button class="w-full" @click.prevent="signIn">Sign in</Button>
+        <p class="my-4">or</p>
+        <router-link :to="{ name: 'signup' }">
+          <Button variant="link" class="text-lg text-primary">
+            Create an account
+          </Button>
+        </router-link>
       </label>
     </form>
   </section>
