@@ -16,13 +16,23 @@ const searchTickets = async () => {
       .from("items-table")
       .select()
       .ilike("companyId", `%${inputData.value}%`)
+      .order(store.currentFilter, { ascending: false })
       .range(
         (store.currentPage - 1) * store.itemsOnPage,
         store.currentPage * store.itemsOnPage - 1
       );
 
+    const { data: dataLength } = await supabase
+      .from("items-table")
+      .select()
+      .ilike("companyId", `%${inputData.value}%`);
+
     if (data) {
+      store.itemsLength = dataLength?.length;
+
       store.dataToShow = [...data];
+
+      console.log(store.itemsLength, store.amountOnPage);
     }
   } catch (error) {
     console.log(error);
@@ -45,7 +55,8 @@ watch(inputData, () => {
         placeholder="Search..."
         class="w-full"
         v-model="inputData"
-        @keydown.enter="searchTickets"
+        @input.prevent="searchTickets"
+        @keydown.enter.prevent="searchTickets"
       />
       <Button type="submit" @click.prevent="searchTickets">Search</Button>
     </form>

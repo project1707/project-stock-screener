@@ -134,5 +134,6 @@ export const useCounterStore = defineStore("counter", () => {
     usersToShow,
     comments,
     itemsOnPage,
+    itemsLength,
   };
 });
