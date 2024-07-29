@@ -10,23 +10,6 @@ export const useCounterStore = defineStore("counter", () => {
   const dataToShow = ref([...data.value]);
   const usersToShow = ref<any[] | null>([]);
 
-  const sortNumbers = (key: string, order: "asc" | "desc") => {
-    dataToShow.value = [...data.value];
-
-    dataToShow.value.sort((a, b) => {
-      const aKey = Number(a[key as keyof typeof a]);
-      const bKey = Number(b[key as keyof typeof b]);
-
-      if (isNaN(aKey) || isNaN(bKey)) {
-        throw new Error(
-          `The key "${key}" must correspond to numerical values in the objects.`
-        );
-      }
-
-      return order === "asc" ? aKey - bKey : bKey - aKey;
-    });
-  };
-
   const currentFilter = ref("EMADiff_FinalScore");
 
   const itemsIsLoading = ref(true);
@@ -107,6 +90,7 @@ export const useCounterStore = defineStore("counter", () => {
       const { data: FetchedData, error } = await supabase
         .from("items-table")
         .select("*")
+        .order(currentFilter.value, { ascending: false })
         .range(
           (currentPage.value - 1) * itemsOnPage,
           currentPage.value * itemsOnPage - 1
@@ -117,18 +101,6 @@ export const useCounterStore = defineStore("counter", () => {
       } else {
         data.value = [...FetchedData];
         dataToShow.value = [...data.value];
-
-        if (currentFilter.value === "EMADiff_FinalScore") {
-          sortNumbers("EMADiff_FinalScore", "desc");
-        }
-        if (currentFilter.value === "superTrend_FinalScore") {
-          sortNumbers("superTrend_FinalScore", "desc");
-        }
-        if (
-          currentFilter.value === "squeezeMomentum_LinearRegressionValueDelta"
-        ) {
-          sortNumbers("squeezeMomentum_LinearRegressionValueDelta", "desc");
-        }
 
         console.log(data);
         itemsIsLoading.value = false;
@@ -149,7 +121,6 @@ export const useCounterStore = defineStore("counter", () => {
     data,
     dataToShow,
     users,
-    sortNumbers,
     currentFilter,
     userName,
     isConfirmed,
