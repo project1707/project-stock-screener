@@ -21,14 +21,20 @@ console.log(store.dataToShow);
           <TabsTrigger
             value="ema-diff"
             class="w-full phonel:text-[10px] phonel:w-fit"
-            @click="store.currentFilter = 'EMADiff_FinalScore'"
+            @click="
+              store.currentFilter = 'EMADiff_FinalScore';
+              store.fetchData();
+            "
           >
             EMA Diff
           </TabsTrigger>
           <TabsTrigger
             value="super-trend"
             class="w-full phonel:text-[10px] phonel:w-fit"
-            @click="store.currentFilter = 'superTrend_FinalScore'"
+            @click="
+              store.currentFilter = 'superTrend_FinalScore';
+              store.fetchData();
+            "
           >
             SuperTrend
           </TabsTrigger>
@@ -36,7 +42,9 @@ console.log(store.dataToShow);
             value="squeeze"
             class="w-full phonel:text-[10px] phonel:w-fit"
             @click="
-              store.currentFilter = 'squeezeMomentum_LinearRegressionValueDelta'
+              store.currentFilter =
+                'squeezeMomentum_LinearRegressionValueDelta';
+              store.fetchData();
             "
           >
             Squeeze momentum

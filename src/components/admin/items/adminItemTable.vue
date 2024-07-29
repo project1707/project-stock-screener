@@ -6,8 +6,6 @@ import AdminEditDialog from "./adminEditDialog.vue";
 import AdminDeleteDialog from "./adminDeleteDialog.vue";
 
 const store = useCounterStore();
-
-console.log(store.dataToShow);
 </script>
 
 <template>
