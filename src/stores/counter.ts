@@ -85,7 +85,6 @@ export const useCounterStore = defineStore("counter", () => {
 
   const fetchData = async () => {
     try {
-      itemsIsLoading.value = true;
       const { data: FetchedData, error } = await supabase
         .from("items-table")
         .select("*")
