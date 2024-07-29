@@ -33,9 +33,6 @@ const signIn = async () => {
 </script>
 
 <template>
-  <router-link :to="{ name: 'home' }">
-    <p class="text-primary font-light ml-4 mt-4 block">Return to "Home" page</p>
-  </router-link>
   <section class="min-h-screen flex flex-col items-center justify-center">
     <form
       class="p-4 bg-light rounded-lg border text-center w-[60vw] tablets:w-[90vw] m-auto"

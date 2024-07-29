@@ -40,14 +40,6 @@ const signUp = async () => {
 </script>
 
 <template>
-  <router-link :to="{ name: 'home' }">
-    <p
-      class="text-primary font-light ml-4 mt-4 block"
-      @click="store.fetchData()"
-    >
-      Return to "Home" page
-    </p>
-  </router-link>
   <section class="min-h-screen flex flex-col items-center justify-center">
     <form
       class="p-4 bg-light rounded-lg border text-center w-[60vw] tablets:w-[90vw] m-auto"
@@ -86,6 +78,12 @@ const signUp = async () => {
             required
           />
           <Button class="w-full" @click.prevent="signUp">Sign up</Button>
+          <p class="my-4">or</p>
+          <router-link :to="{ name: 'signin' }">
+            <Button variant="link" class="text-lg text-primary">
+              Sign in
+            </Button>
+          </router-link>
         </label>
       </div>
       <div v-else class="text-center flex flex-col items-center gap-3">
