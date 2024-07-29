@@ -56,9 +56,11 @@ const getUsers = () => {
           <td class="duration-300 border-b">
             {{ ticket?.user_metadata.password }}
           </td>
-          <td class="border-b flex-between gap-1 max-w-[100px]">
-            <AdminEditUser :el="ticket" @getUsers="getUsers" />
-            <adminDeleteUser :id="ticket.id" @getUsers="getUsers" />
+          <td class="border-b">
+            <div class="flex-between gap-1 max-w-[100px] m-auto">
+              <AdminEditUser :el="ticket" @getUsers="getUsers" />
+              <adminDeleteUser :id="ticket.id" @getUsers="getUsers" />
+            </div>
           </td>
         </tr>
       </tbody>

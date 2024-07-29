@@ -198,7 +198,7 @@ console.log(store.dataToShow);
                   <td class="border-b">
                     {{ ticket?.squeezeMomentum_LinearRegressionValueDelta }}
                   </td>
-                  <td class="border-b flex-between gap-1 max-w-[100px]">
+                  <td class="border-b flex-between gap-1">
                     <AdminEditDialog :el="ticket" />
                     <AdminDeleteDialog :id="ticket.ID" />
                   </td>

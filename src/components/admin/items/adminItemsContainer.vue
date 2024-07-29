@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import AdminItemDialog from "./adminItemDialog.vue";
 import { useCounterStore } from "../../../stores/counter";
-import { ref } from "vue";
+import { ref, watch } from "vue";
 import { supabase } from "@/lib/supabaseClient";
 import AdminItemTable from "./adminItemTable.vue";
 const store = useCounterStore();
@@ -9,33 +9,43 @@ const store = useCounterStore();
 const inputData = ref("");
 
 const searchTickets = async () => {
-  if (inputData.value.length !== 0) {
-    const { data, error } = await supabase
+  try {
+    store.itemsIsLoading = true;
+
+    const { data } = await supabase
       .from("items-table")
       .select()
-      .textSearch("companyId", inputData.value);
-    if (inputData.value.length === 0) {
-      store.fetchData();
+      .ilike("companyId", `%${inputData.value}%`)
+      .range(
+        (store.currentPage - 1) * store.itemsOnPage,
+        store.currentPage * store.itemsOnPage - 1
+      );
+
+    if (data) {
+      store.dataToShow = [...data];
     }
-    if (error) {
-      console.log(`Error with serching items: ${error}`);
-    } else {
-      store.dataToShow = data;
-    }
+  } catch (error) {
+    console.log(error);
+  } finally {
+    store.itemsIsLoading = false;
   }
 };
+
+watch(inputData, () => {
+  store.fetchData();
+});
 </script>
 
 <template>
   <div class="max-w-[1015px] basis-full m-auto gap-4 flex-between">
-    <form class="flex-between basis-full gap-1 m-auto">
+    <form class="flex-between w-full gap-1 m-auto">
       <Input
         id="search"
         type="search"
         placeholder="Search..."
         class="w-full"
         v-model="inputData"
-        @input.prevent="searchTickets"
+        @keydown.enter="searchTickets"
       />
       <Button type="submit" @click.prevent="searchTickets">Search</Button>
     </form>

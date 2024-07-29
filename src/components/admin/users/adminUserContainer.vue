@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { useCounterStore } from "@/stores/counter";
-import { ref, onMounted } from "vue";
+import { ref, watch, onMounted } from "vue";
 import adminUserTable from "./adminUserTable.vue";
 import { supabase } from "@/lib/supabaseClient";
 import AdminCreateUser from "./adminCreateUser.vue";
@@ -9,19 +9,27 @@ const store = useCounterStore();
 const inputData = ref("");
 
 const searchUsers = () => {
-  store.usersToShow = store.usersToShow.filter(
-    (el: { user_metadata: { name: string } }) => {
-      return el.user_metadata.name
-        .toUpperCase()
-        .includes(inputData.value.toUpperCase());
+  try {
+    if (store.usersToShow) {
+      store.usersToShow = store.usersToShow.filter(
+        (el: { user_metadata: { name: string } }) => {
+          return el.user_metadata.name
+            .toUpperCase()
+            .includes(inputData.value.toUpperCase());
+        }
+      );
+
+      if (inputData.value.length === 0 || inputData.value === " ") {
+        store.usersToShow = [...store.users];
+      }
+
+      console.log(store.users);
     }
-  );
-
-  if (inputData.value.length === 0 || inputData.value === " ") {
-    store.usersToShow = [...store.users];
+  } catch (error) {
+    console.log(error);
+  } finally {
+    store.usersIsLoading = false;
   }
-
-  console.log(store.users);
 };
 
 const getUsers = async () => {
@@ -42,6 +50,12 @@ const getUsers = async () => {
   }
 };
 
+watch(inputData, () => {
+  if (inputData.value.length === 0) {
+    getUsers();
+  }
+});
+
 onMounted(() => {
   getUsers();
 });
@@ -56,7 +70,7 @@ onMounted(() => {
         placeholder="Search..."
         class="w-full"
         v-model="inputData"
-        @input.prevent="searchUsers"
+        @keydown.enter="searchUsers"
       />
       <Button type="submit" @click.prevent="searchUsers">Search</Button>
     </form>

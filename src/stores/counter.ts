@@ -5,9 +5,10 @@ import { supabase } from "@/lib/supabaseClient";
 export const useCounterStore = defineStore("counter", () => {
   const data = ref<any[]>([]);
   const users = ref<any[]>([]);
+  const comments = ref<any[] | null>([]);
 
   const dataToShow = ref([...data.value]);
-  const usersToShow = ref<any[]>([]);
+  const usersToShow = ref<any[] | null>([]);
 
   const sortNumbers = (key: string, order: "asc" | "desc") => {
     dataToShow.value = [...data.value];
@@ -160,5 +161,7 @@ export const useCounterStore = defineStore("counter", () => {
     role,
     usersIsLoading,
     usersToShow,
+    comments,
+    itemsOnPage,
   };
 });

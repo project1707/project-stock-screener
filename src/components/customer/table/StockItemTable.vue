@@ -192,8 +192,8 @@ console.log(store.dataToShow);
           </div>
         </TabsContent>
       </Tabs>
-      <!-- <StockFeedback /> -->
-      <StockPagination class="mt-10" />
+      <StockPagination class="mt-5" />
+      <StockFeedback />
     </div>
   </section>
 </template>

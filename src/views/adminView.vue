@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import AdminFeedbackContainer from "@/components/admin/feedback/adminFeedbackContainer.vue";
 import AdminItemsContainer from "@/components/admin/items/adminItemsContainer.vue";
 import adminUsersContainer from "@/components/admin/users/adminUserContainer.vue";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
@@ -29,12 +30,16 @@ onMounted(() => {
       <TabsList class="m-auto w-full">
         <TabsTrigger value="items" class="w-full"> Items </TabsTrigger>
         <TabsTrigger value="users" class="w-full"> Users </TabsTrigger>
+        <TabsTrigger value="feedback" class="w-full"> Feedback </TabsTrigger>
       </TabsList>
       <TabsContent value="items" class="h-[520px]">
         <AdminItemsContainer />
       </TabsContent>
       <TabsContent value="users" class="w-full h-[520px]"
         ><adminUsersContainer
+      /></TabsContent>
+      <TabsContent value="feedback" class="w-full h-[520px]"
+        ><AdminFeedbackContainer
       /></TabsContent>
     </Tabs>
   </section>
