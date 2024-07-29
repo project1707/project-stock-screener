@@ -18,14 +18,20 @@ const store = useCounterStore();
           <TabsTrigger
             value="ema-diff"
             class="w-full"
-            @click="store.currentFilter = 'EMADiff_FinalScore'"
+            @click="
+              store.currentFilter = 'EMADiff_FinalScore';
+              store.fetchData();
+            "
           >
             EMA Diff
           </TabsTrigger>
           <TabsTrigger
             value="super-trend"
             class="w-full"
-            @click="store.currentFilter = 'superTrend_FinalScore'"
+            @click="
+              store.currentFilter = 'superTrend_FinalScore';
+              store.fetchData();
+            "
           >
             SuperTrend
           </TabsTrigger>
@@ -33,7 +39,9 @@ const store = useCounterStore();
             value="squeeze"
             class="w-full"
             @click="
-              store.currentFilter = 'squeezeMomentum_LinearRegressionValueDelta'
+              store.currentFilter =
+                'squeezeMomentum_LinearRegressionValueDelta';
+              store.fetchData();
             "
           >
             Squeeze momentum
