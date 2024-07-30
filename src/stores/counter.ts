@@ -62,13 +62,17 @@ export const useCounterStore = defineStore("counter", () => {
   const itemsLength = ref();
 
   const fetchLength = async () => {
-    let { data: itemsTable, error } = await supabase
+    let {
+      data: itemsTable,
+      count,
+      error,
+    } = await supabase
       .from("items-table")
-      .select("*");
+      .select("*", { count: "exact", head: true });
 
-    itemsLength.value = itemsTable?.length;
+    itemsLength.value = count;
 
-    console.log(itemsLength.value);
+    console.log(count);
 
     if (error) {
       console.log(`error with fetching items length: ${error}`);
@@ -100,14 +104,13 @@ export const useCounterStore = defineStore("counter", () => {
         data.value = [...FetchedData];
         dataToShow.value = [...data.value];
 
-        console.log(data);
+        console.log(FetchedData);
         itemsIsLoading.value = false;
       }
     } catch (error) {
       console.log(error);
     } finally {
       itemsIsLoading.value = false;
-      console.log("aaa");
     }
   };
 
@@ -133,5 +136,6 @@ export const useCounterStore = defineStore("counter", () => {
     comments,
     itemsOnPage,
     itemsLength,
+    fetchLength,
   };
 });

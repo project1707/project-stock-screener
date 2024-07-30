@@ -30,46 +30,46 @@ const handleFile = (event: Event) => {
 };
 
 const uploadItems = async () => {
-  jsonData.value.forEach(async (el: string[]) => {
-    const { data, error } = await supabase
-      .from("items-table")
-      .insert([
-        {
-          ID: Number(el[0]),
-          companyId: el[1],
-          lotSize: Number(el[2]),
-          LTP: Number(el[3].slice(2, el[3].length)),
-          EMADiff: Number(el[4]),
-          EMADiff_FinalScore: Number(el[5].slice(0, el[5].length - 1)),
-          superTrend_Hide: Number(el[6]),
-          superTrend: Number(el[7]),
-          superTrend_DownScore_Hide: Number(el[8]),
-          superTrend_FinalScore: Number(el[9].slice(0, el[9].length - 1)),
-          squeezeMomentum_SqueezeOn_Hide: el[10],
-          squeezeMomentum_Hide: el[11],
-          squeezeMomentum: el[12],
-          squeezeMomentum_LinearRegressionValueDelta: Number(el[13]),
-          squeezeMomentum_FinalScore: Number(
-            el[14].slice(0, el[14].length - 1)
-          ),
-        },
-      ])
-      .select();
+  try {
+    jsonData.value.forEach(async (el: string[]) => {
+      const { data } = await supabase
+        .from("items-table")
+        .insert([
+          {
+            ID: Number(el[0]),
+            companyId: el[1],
+            lotSize: Number(el[2]),
+            LTP: Number(el[3].slice(2, el[3].length)),
+            EMADiff: Number(el[4]),
+            EMADiff_FinalScore: Number(el[5].slice(0, el[5].length - 1)),
+            superTrend_Hide: Number(el[6]),
+            superTrend: Number(el[7]),
+            superTrend_DownScore_Hide: Number(el[8]),
+            superTrend_FinalScore: Number(el[9].slice(0, el[9].length - 1)),
+            squeezeMomentum_SqueezeOn_Hide: el[10],
+            squeezeMomentum_Hide: el[11],
+            squeezeMomentum: el[12],
+            squeezeMomentum_LinearRegressionValueDelta: Number(el[13]),
+            squeezeMomentum_FinalScore: Number(
+              el[14].slice(0, el[14].length - 1)
+            ),
+          },
+        ])
+        .select();
 
-    console.log(data);
-
-    if (error) {
-      console.log(`Error with uploading data: ${error}`);
-    } else {
-      store.dataToShow = [];
-      setTimeout(() => {
-        store.fetchData();
-      }, 5000);
-    }
-  });
+      console.log(data);
+    });
+  } catch (error) {
+    console.log(error);
+  } finally {
+    store.itemsIsLoading = false;
+    store.fetchLength();
+    store.fetchData();
+  }
 };
 
 const parseFile = async (file: File | null) => {
+  store.itemsIsLoading = true;
   if (file) {
     Papa.parse(file, {
       complete: (results: ParseResult<any>) => {
@@ -99,7 +99,7 @@ const parseFile = async (file: File | null) => {
   <Dialog>
     <DialogTrigger>
       <button
-        class="bg-green-500 h text-light px-4 py-2 rounded-lg border hover:text-green-500 border-green-500 hover:bg-light duration-300"
+        class="bg-green-500 text-light px-4 py-2 rounded-lg border hover:text-green-500 border-green-500 hover:bg-light duration-300"
       >
         <p class="text-[14px] w-[90px]">Add new item</p>
       </button>

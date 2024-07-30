@@ -22,6 +22,9 @@ onMounted(() => {
 </script>
 
 <template>
+  <router-link :to="{ name: 'home' }">
+    <p class="text-primary text-lg m-4">Return to "Home" page</p>
+  </router-link>
   <section class="min-h-screen">
     <Tabs
       default-value="items"

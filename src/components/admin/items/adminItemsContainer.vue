@@ -4,6 +4,7 @@ import { useCounterStore } from "../../../stores/counter";
 import { ref, watch } from "vue";
 import { supabase } from "@/lib/supabaseClient";
 import AdminItemTable from "./adminItemTable.vue";
+import AdminDeleteAll from "./adminDeleteAll.vue";
 const store = useCounterStore();
 
 const inputData = ref("");
@@ -61,6 +62,7 @@ watch(inputData, () => {
       <Button type="submit" @click.prevent="searchTickets">Search</Button>
     </form>
     <AdminItemDialog />
+    <AdminDeleteAll />
   </div>
   <div v-if="store.itemsIsLoading">
     <StockLoader />
